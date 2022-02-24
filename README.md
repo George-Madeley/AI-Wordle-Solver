@@ -3,6 +3,13 @@ An AI that attempts to solve Wordle problems.
 
 ## Version History
 
+### v1.0.3
+
+- Fixed any errors
+- Finshed Knowledge Base.
+- Created an `UpdatePossibleWords` method which removes any words that do not meet the conditions set by the results of the previous entries.
+- Created an `IsGameOver` method which runs every time the AI enters a word and returns true if the word enters matches the goal word.
+
 ### v1.0.2
 
 - Created main.py file containing a `main` class
