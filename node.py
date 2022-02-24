@@ -21,3 +21,6 @@ class Node:
     def IsLetterInWord(self, letter):
         letterIndex = self.word.find(str(letter))
         return letterIndex >= 0
+
+    def GetLetterIndex(self, letter):
+        letterIndex = self.word.find(str(letter))
