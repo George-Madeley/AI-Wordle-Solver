@@ -1,4 +1,7 @@
-goalWord = "drink"
+from main import main
+
+GOALWORD = "drink"
+solverAI = main()
 
 def CheckWord(guessedWord):
     lettersNotIncluded = []
@@ -6,7 +9,7 @@ def CheckWord(guessedWord):
     lettersInCorrectPos = [None, None, None, None, None]
     for guessIndex, guessLetter in enumerate(guessedWord):
         letterInWord = False
-        for goalIndex, goalLetter in enumerate(goalWord):
+        for goalIndex, goalLetter in enumerate(GOALWORD):
             if guessLetter == goalLetter and guessIndex == goalIndex:
                 lettersInCorrectPos[guessIndex] = guessLetter
                 letterInWord = True
@@ -18,10 +21,15 @@ def CheckWord(guessedWord):
             lettersNotIncluded.append(guessLetter)
     return lettersNotIncluded, lettersIncluded, lettersInCorrectPos
 
+def isGoalWord(guessWord):
+    return guessWord == GOALWORD
+
 gameOver = False
+print(solverAI.GetPossibleWords())
 
 while not gameOver:
     guessedWord = input(">?")
+    guessedWord = solverAI.GetGuessWord()
     lettersNotIncluded, lettersIncluded, lettersInCorrectPos = CheckWord(guessedWord)
     print(lettersNotIncluded)
     print("-------------------")
@@ -29,3 +37,9 @@ while not gameOver:
     print("-------------------")
     print(lettersInCorrectPos)
     print("===================")
+    solverAI.UpdatePossibleWords(lettersNotIncluded, lettersIncluded, lettersInCorrectPos)
+    gameOver = isGoalWord(guessedWord)
+    print(solverAI.GetPossibleWords())
+    print("===================")
+
+print("YOU WON!")
