@@ -31,6 +31,8 @@ while not gameOver:
     guessedWord = input(">?")
     guessedWord = solverAI.GetGuessWord()
     lettersNotIncluded, lettersIncluded, lettersInCorrectPos = CheckWord(guessedWord)
+    print("Guessing: " + guessedWord)
+    print("-------------------")
     print(lettersNotIncluded)
     print("-------------------")
     print(lettersIncluded)

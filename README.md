@@ -3,6 +3,11 @@ An AI that attempts to solve Wordle problems.
 
 ## Version History
 
+### v1.1.0
+
+- Added a list of words file containing a list of five letter words
+- Redesigned the `InitAllWords` method to read the words from the file and raise an error if a word does not have a length of five.
+
 ### v1.0.3
 
 - Fixed any errors
