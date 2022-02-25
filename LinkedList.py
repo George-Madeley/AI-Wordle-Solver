@@ -47,7 +47,8 @@ class LinkedList:
                 # Remove Node
                 currentNode.SetNextNode(currentNode.GetNextNode().GetNextNode())
                 self.length -= 1
-            currentNode = currentNode.GetNextNode()
+            else:
+                currentNode = currentNode.GetNextNode()
 
     def RemoveNodesWithLetterAtIndex(self, letter, index):
         """
@@ -65,7 +66,8 @@ class LinkedList:
                 #Remove Node
                 currentNode.SetNextNode(currentNode.GetNextNode().GetNextNode())
                 self.length -= 1
-            currentNode = currentNode.GetNextNode()
+            else:
+                currentNode = currentNode.GetNextNode()
 
     def KeepNodesWithLetter(self, letter):
         """
@@ -81,7 +83,8 @@ class LinkedList:
                 # Remove Node
                 currentNode.SetNextNode(currentNode.GetNextNode().GetNextNode()) 
                 self.length -= 1
-            currentNode = currentNode.GetNextNode()
+            else:
+                currentNode = currentNode.GetNextNode()
 
     def KeepNodesWithLetterAtIndex(self, letter:string, index:int):
         """
@@ -97,4 +100,5 @@ class LinkedList:
                 # Remove Node
                 currentNode.SetNextNode(currentNode.GetNextNode().GetNextNode())
                 self.length -= 1
-            currentNode = currentNode.GetNextNode()
+            else:
+                currentNode = currentNode.GetNextNode()
