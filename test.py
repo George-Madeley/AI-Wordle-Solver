@@ -1,12 +1,22 @@
-from main import main
+from Agent import Agent
 
 GOALWORD = ""
-solverAI = main()
+agent = Agent()
 
-# for i in range(len(solverAI.alphabetStats)):
-#     print(solverAI.alphabetStats[i].GetCharacter() + ": " + str(solverAI.alphabetStats[i].GetStatTotal()))
+def CheckWord(guessedWord: str) -> any:
+    """
+    Compares given word with the goal word and returns any found
+    information.
+    
+    Args:
+        guessedWord: The word to be compared to the goal word.
 
-def CheckWord(guessedWord):
+    Returns:
+        An array for all the letters not in the goal word,
+        An array for all the letters in the goal word but in the incorrect location,
+        An array for all the letters in the goal word and in the correct location.
+    """
+
     incorrectLetters = []
     lettersIncorrectPos = [None, None, None, None, None]
     lettersCorrectPos = [None, None, None, None, None]
@@ -24,33 +34,35 @@ def CheckWord(guessedWord):
             incorrectLetters.append(guessLetter)
     return incorrectLetters, lettersIncorrectPos, lettersCorrectPos
 
-def isGoalWord(guessWord):
+def isGoalWord(guessWord: str) -> bool:
+    """
+    Returns True if given word is the goal word.
+    
+    Args:
+        guessWord: The word to be checked if it matches the goal word.
+
+    Returns:
+        True if the given word is the goal word.
+    """
+
     return guessWord == GOALWORD
 
 gameOver = False
-GOALWORD = solverAI.GetRandomWord()
+GOALWORD = agent.GetRandomWord()
 numberOfAttempts = 0
 
 while not gameOver and numberOfAttempts < 6:
     print("<><><><><><><><><><><>")
     print("Goal Word: " + GOALWORD)
     numberOfAttempts += 1
-    guessedWord = solverAI.GetGuessWord()
+    guessedWord = agent.GetGuessWord()
     incorrectLetters, lettersIncorrectPos, lettersCorrectPos = CheckWord(guessedWord)
     print("Guessing: " + guessedWord)
-    # print("-------------------")
-    # print(lettersNotIncluded)
-    # print("-------------------")
-    # print(lettersIncluded)
-    # print("-------------------")
-    # print(lettersInCorrectPos)
     print("===================")
-    solverAI.UpdatePossibleWords(incorrectLetters, lettersIncorrectPos, lettersCorrectPos)
+    agent.UpdatePossibleWords(incorrectLetters, lettersIncorrectPos, lettersCorrectPos)
     gameOver = isGoalWord(guessedWord)
-    # print(solverAI.GetPossibleWords())
-    # print("===================")
 
 if numberOfAttempts >= 6:
-    solverAI.AddNewWord(input("New Word >? "))
+    agent.AddNewWord(input("New Word >? "))
 
 print("YOU WON!")
