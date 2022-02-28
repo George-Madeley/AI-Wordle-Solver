@@ -16,9 +16,9 @@ Wordle, created by Josh Wardle, is a game in which the play has to guess a five 
 
 The game illiustrates this information by the means of three colors: Grey, Yellow, and Green respectfully. (See example Below):
 
-    ![Wordle example, by the Guardian](/images/example01.jpg "Wordle Example from the Guardian")
+<img src="/images/example01.jpg" alt="Wordle example, by the Guardian" width="200">
 
-[1]
+**Figure 1** - Wordle Game example. [1]
 
 From this information, the player must figure out the goal word in the least amount of attempts.
 
@@ -74,9 +74,9 @@ First off, what is this problem? This problem occurs when the goal word ends in 
 
 In an example, lets say the goal word was 'eight'. In our current system, if the enters 'sight' as the first attempt, the agent builds its knowledge base then filters out any word that does not end in 'ight'. If the agent then enters any of the following words in and order: 'might', 'night', 'light', 'right', and 'fight', they will only filter out itself and eventually the agent will lose (worst-case scenario).
 
-    ![-ight lose example, by the Akilan](/images/ight_example.jpg "-ight lose example, by the Akilan")
+<img src="/images/ight_example.jpg" alt="-ight lose example, by the Akilan" width="200">
 
-[3]
+**Figure 2** - Wordle -ight example. [3]
 
 Now, there is a much more efficient way to go about this problem by using the word 'later'. If after the first guess, the agent entered 'later', Wordle would tell it what letters in 'later' are in the goal word. In this case, it would say that 'l', 'a', 't', and 'r' are not in the goal word but 'e' is, therefore, 'eight' would be the last word in the list of the all possible words be the thrid and final attempt. However, the question is, when would the agent know to pick 'later' and other words in similar situations? (because we cant hardcode this answer into the agent). We do it based on the knowledge each word provides.
 
