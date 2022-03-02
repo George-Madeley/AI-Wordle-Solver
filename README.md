@@ -101,6 +101,11 @@ So in the -ight example, after the agent guesses sight, the list of possible wor
 
 ## Version History
 
+### v1.2.1
+
+- Deleted LinkedList.py
+- Redesigned Node.py
+
 ### v1.2.0
 
 - Created a Score by knowledge system which scores each word based on how much new knowledge that will provide to the agent.

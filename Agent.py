@@ -1,7 +1,7 @@
 from typing import Any, TypeAlias
 from KnowledgeBase import KnowledgeBase
 from CharacterInfo import CharacterInfo
-from Word import Word
+from Node import Node
 from WordList import WordList
 
 AlphabetInfo: TypeAlias = list[CharacterInfo]
@@ -123,7 +123,7 @@ class Agent:
         self.__knowledgeBase.wordList.CalculateOccuranceScores(self.__alphabetOccurances)
         return self.__knowledgeBase.wordList.GetBestOccuranceWord()
 
-    def GetBestKnowledgeWord(self) -> Word:
+    def GetBestKnowledgeWord(self) -> Node:
         """
         Returns the best word to use given the current set of
         possible words based on the amount of knowledge that

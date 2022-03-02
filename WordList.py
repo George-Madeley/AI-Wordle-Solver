@@ -1,6 +1,6 @@
 from typing import TypeAlias
 from CharacterInfo import CharacterInfo
-from Word import Word
+from Node import Node
 from random import randint
 
 AlphabetInfo: TypeAlias = list[CharacterInfo]
@@ -26,7 +26,7 @@ class WordList:
             word: The word of the first node (default None).
         """
 
-        self.listOfWords = [Word(word)]
+        self.listOfWords = [Node(word)]
         self.__possibleWords = []
         
     def __str__(self) -> str:
@@ -101,7 +101,7 @@ class WordList:
             newWord: The value of the new node.
         """
 
-        node = Word(newWord)
+        node = Node(newWord)
         self.listOfWords.append(node)
 
     def RemoveNodesWithLetter(self, letter: str) -> None:
@@ -230,7 +230,7 @@ class WordList:
                             # no places are left
                             pass
 
-    def GetBestKnowledgeWord(self) -> Word:
+    def GetBestKnowledgeWord(self) -> Node:
         """
         Returns the word with the most amount of new knowledge.
         

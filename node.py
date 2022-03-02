@@ -22,10 +22,10 @@ class Node:
             word: The five letter word to be stored.
         """
         
-        self.word = word
-        self.occuranceScore = 0
-        self.knowledgeScore = 0
-        self.nextNode = None
+        self.__word = word
+        self.__occuranceScore = 0
+        self.__knowledgeScore = 0
+        self.__isPossibleWord = True
 
     def __str__(self) -> str:
         """
@@ -35,17 +35,10 @@ class Node:
             The stored word.
         """
 
-        return self.word
+        return self.__word
 
-    def SetWord(self, word: str) -> None:
-        """
-        Sets the stored word to the given new word.
-        
-        Args:
-            word: The new five letter word.
-        """
-
-        self.word = word
+    def PrintNodeInfo(self) -> None:
+        print(self.__word + ", O: " + str(self.__occuranceScore) + ", K: " + str(self.__knowledgeScore) + ", " + str(self.__isPossibleWord))
 
     def GetWord(self) -> str:
         """
@@ -55,27 +48,7 @@ class Node:
             The stored word.
         """
 
-        return self.word
-
-    def SetNextNode(self, node: 'Node') -> None:
-        """
-        Sets the next node to the given node.
-        
-        Args:
-            node: The next node in the line.
-        """
-
-        self.nextNode = node
-
-    def GetNextNode(self) -> 'Node':
-        """
-        Returns the next node.
-
-        Returns:
-            The next node.
-        """
-
-        return self.nextNode
+        return self.__word
 
     def IsWordValid(self) -> bool:
         """
@@ -85,21 +58,7 @@ class Node:
             True if the stored word is a valid word.
         """
 
-        return len(self.word) == 5
-
-    def HasLetter(self, letter: str) -> bool:
-        """
-        Returns True if the word contains a given letter.
-        
-        Args:
-            letter: The letter to be found in the word.
-
-        Retuns:
-            True if the word contains a given letter.
-        """
-
-        letterIndex = self.word.find(letter)
-        return letterIndex >= 0
+        return len(self.__word) == 5
 
     def GetLetterIndex(self, letter: str) -> int:
         """
@@ -117,12 +76,8 @@ class Node:
             letter is not in word.
         """
 
-        letterIndex = str(self.word).find(letter)
+        letterIndex = str(self.__word).find(letter)
         return letterIndex
-        # for index, letter in enumerate(self.word):
-        #     if goalLetter == letter:
-        #         return index
-        # return -1
 
     def CalculateCharacterOccurrences(self, characterStats: CharacterInfo) -> None:
         """
@@ -136,7 +91,7 @@ class Node:
             characterStats: The letters stats object.
         """
 
-        for index, letter in enumerate(self.word):
+        for index, letter in enumerate(self.__word):
             if letter == characterStats.GetCharacter():
                 characterStats.IncrementStatAtIndex(index)
 
@@ -145,7 +100,7 @@ class Node:
         Sets the nodes score to 0.
         """
 
-        self.occuranceScore = 0
+        self.__occuranceScore = 0
 
     def GetOccuranceScore(self) -> int:
         """
@@ -155,7 +110,7 @@ class Node:
             The nodes score attribute.
         """
 
-        return self.occuranceScore
+        return self.__occuranceScore
 
     def IncreaseOccuranceScoreBy(self, amount: int) -> None:
         """
@@ -165,14 +120,14 @@ class Node:
             amount: The amount to increase the score by.
         """
 
-        self.occuranceScore += amount
+        self.__occuranceScore += amount
 
     def ResetKnowledgeScore(self) -> None:
         """
         Sets the nodes score to 0.
         """
 
-        self.knowledgeScore = 0
+        self.__knowledgeScore = 0
 
     def GetKnowledgeScore(self) -> int:
         """
@@ -182,7 +137,7 @@ class Node:
             The nodes score attribute.
         """
 
-        return self.knowledgeScore
+        return self.__knowledgeScore
 
     def IncreaseKnowledgeScoreBy(self, amount: int) -> None:
         """
@@ -192,4 +147,19 @@ class Node:
             amount: The amount to increase the score by.
         """
 
-        self.knowledgeScore += amount
+        self.__knowledgeScore += amount
+
+    def IsPossibleWord(self) -> bool:
+        """
+        Checks if word is a possible goal word.
+        
+        Returns:
+            True if word is a possiible goal word.
+        """
+        return self.__isPossibleWord
+
+    def NotPossibleWord(self) -> None:
+        """
+        Sets word to not a possible goal word.
+        """
+        self.__isPossibleWord = False

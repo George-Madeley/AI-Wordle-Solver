@@ -1,6 +1,5 @@
 from typing import TypeAlias
 from CharacterInfo import CharacterInfo
-from LinkedList import LinkedList
 
 AlphabetInfo: TypeAlias = list[CharacterInfo]
 
@@ -22,6 +21,7 @@ class KnowledgeBase:
             lettersInGoal: The array of the letter in the goal word in their incorrect location.
             
         """
+
         self.lettersNotInGoal += lettersNotInGoal
 
         for index, letter in enumerate(lettersInGoal):
@@ -71,6 +71,7 @@ class KnowledgeBase:
         not in any of the words and adds those letters to the
         'lettersNotInGoal' list
         """
+
         strLettersInPossibleWords = str(self.wordList.GetPossibleWordsStr())
         strLettersInPossibleWords.replace("\n", "")
         possibleLettersInGoal = []
@@ -92,6 +93,7 @@ class KnowledgeBase:
         Args:
             alphabetOccurances: List of each character occurance within all possible words.
         """
+        
         for characterOccurances in alphabetOccurances:
             if characterOccurances.HasZero():
                 zeroLocations = characterOccurances.GetZeroIndexes()
