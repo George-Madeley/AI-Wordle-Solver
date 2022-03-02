@@ -1,15 +1,15 @@
-from typing import Any, TypeAlias
+from typing import TypeAlias
 from CharacterInfo import CharacterInfo
-from Node import Node
+from Word import Word
 from random import randint
 
 AlphabetInfo: TypeAlias = list[CharacterInfo]
 
-class LinkedList:
+class WordList:
     """
-    Stores each word within a LinkedList.
+    Stores each word within a list.
     
-    Holds each word in a LinkedList and contains methods
+    Holds each word in a list and contains methods
     to remove and/or keep letters based on given conditions.
     Used to calculate the best words to use given a scenario.
     
@@ -20,54 +20,66 @@ class LinkedList:
 
     def __init__(self, word: str = None) -> None:
         """
-        Initialises the LinkedList.
+        Initialises the list.
         
         Args:
             word: The word of the first node (default None).
         """
 
-        self.head = Node(word)
-        self.length = 1
+        self.listOfWords = [Word(word)]
+        self.__possibleWords = []
         
     def __str__(self) -> str:
         """
-        Returns a string of all the words within the Linked List.
+        Returns a string of all the words within the list.
 
         Returns:
             String of all the words concatenated.
         """
 
         stringList = ""
-        currentNode = self.GetHead()
-        while currentNode:
-            if currentNode.GetWord() != None:
-                stringList += str(currentNode.GetWord()) + "\n"
-            currentNode = currentNode.GetNextNode()
+        for node in self.listOfWords:
+            if node != None:
+                stringList += str(node) + "\n"
         return stringList
     
-    def GetHead(self) -> Node:
-        """
-        Returns the head node of the linked list.
-        
-        Returns:
-            Head Node.
-        """
-        return self.head
-
     def GetRandomWord(self) -> str:
         """
-        Returns a random word from the LinkedList.
+        Returns a random word from the list of words.
 
         Returns:
             A random word.
         """
 
-        index = randint(0, self.length - 1)
-        currentNode = self.head
-        while currentNode.GetNextNode() != None and index != 0:
-            currentNode = currentNode.GetNextNode()
-            index -= 1
-        return currentNode.GetWord()
+        index = randint(0, len(self.listOfWords) - 1 )
+        node = self.listOfWords[index]
+        return node.GetWord()
+
+    def GetPossibleWords(self) -> list:
+        """
+        Returns a list of all the possible words.
+        
+        Returns:
+            A list of all possible words.
+        """
+
+        self.__possibleWords = [word for word in self.listOfWords if word.IsPossibleWord()]
+        return self.__possibleWords
+
+    def GetPossibleWordsStr(self) -> str:
+        """
+        Returns a string of all the possible goal words.
+
+        Returns:
+            String of all the words concatenated.
+        """
+
+        stringList = ""
+        possibleWords = self.GetPossibleWords()
+        for node in possibleWords:
+            if node != None:
+                stringList += str(node) + "\n"
+        return stringList
 
     def CalculateTotalCharacterOccurrences(self, characterOccurances: CharacterInfo) -> None:
         """
@@ -77,23 +89,20 @@ class LinkedList:
         Args:
             characterOccurances: The stats object for the given letter.
         """
-        currentNode = self.head
-        while currentNode != None:
-            currentNode.CalculateCharacterOccurrences(characterOccurances)
-            currentNode = currentNode.GetNextNode()
+
+        possibleWords = self.GetPossibleWords()
+        for node in possibleWords:
+            node.CalculateCharacterOccurrences(characterOccurances)
     
     def AddWord(self, newWord: str) -> None:
         """
-        Adds a new node to the head of the LinkedList.
-        
+        Adds a new node to the list of words.
         Args:
             newWord: The value of the new node.
         """
 
-        newNode = Node(newWord)
-        newNode.SetNextNode(self.head)
-        self.head = newNode
-        self.length += 1
+        node = Word(newWord)
+        self.listOfWords.append(node)
 
     def RemoveNodesWithLetter(self, letter: str) -> None:
         """
@@ -104,17 +113,9 @@ class LinkedList:
             letter: The letter to be removed.
         """
 
-        while self.head != None and self.head.HasLetter(letter):
-            # Remove Node
-            self.head = self.head.GetNextNode()
-            self.length -= 1
-        currentNode = self.head
-        while (currentNode != None and currentNode.GetNextNode() != None):
-            if currentNode.GetNextNode().HasLetter(letter):
-                currentNode.SetNextNode(currentNode.GetNextNode().GetNextNode())
-                self.length -= 1
-            else:
-                currentNode = currentNode.GetNextNode()
+        for node in self.listOfWords:
+            if letter in node.GetWord():
+                node.NotPossibleWord()
 
     def RemoveNodesWithLetterAtIndex(self, letter: str, index: int) -> None:
         """
@@ -126,20 +127,9 @@ class LinkedList:
             index: The index of the letter to be removed.
         """
 
-        while self.head != None and self.head.GetWord()[index] == letter:
-            #Remove Node
-            self.head = self.head.GetNextNode()
-            self.length -= 1
-        currentNode = self.head
-        if currentNode == None:
-            return
-        while (currentNode.GetNextNode() != None):
-            if currentNode.GetNextNode().GetLetterIndex(letter) == index:
-                #Remove Node
-                currentNode.SetNextNode(currentNode.GetNextNode().GetNextNode())
-                self.length -= 1
-            else:
-                currentNode = currentNode.GetNextNode()
+        for node in self.listOfWords:
+            if letter == node.GetWord()[index]:
+                node.NotPossibleWord()
 
     def KeepNodesWithLetter(self, letter: str) -> None:
         """
@@ -150,18 +140,9 @@ class LinkedList:
             letter: The letter to keep.
         """
 
-        while self.head != None and not self.head.HasLetter(letter):
-            # Remove Node
-            self.head = self.head.GetNextNode()
-            self.length -= 1
-        currentNode = self.head
-        while (currentNode != None and currentNode.GetNextNode() != None):
-            if not currentNode.GetNextNode().HasLetter(letter):
-                # Remove Node
-                currentNode.SetNextNode(currentNode.GetNextNode().GetNextNode()) 
-                self.length -= 1
-            else:
-                currentNode = currentNode.GetNextNode()
+        for node in self.listOfWords:
+            if not letter in node.GetWord():
+                node.NotPossibleWord()
 
     def KeepNodesWithLetterAtIndex(self, letter: str, index: int) -> None:
         """
@@ -173,18 +154,9 @@ class LinkedList:
             index: The index of the letter to keep.
         """
 
-        while self.head != None and not self.head.GetWord()[index] == letter:
-            # Remove Node
-            self.head = self.head.GetNextNode()
-            self.length -= 1
-        currentNode = self.head
-        while (currentNode != None and currentNode.GetNextNode() != None):
-            if not currentNode.GetNextNode().GetLetterIndex(letter) == index:
-                # Remove Node
-                currentNode.SetNextNode(currentNode.GetNextNode().GetNextNode())
-                self.length -= 1
-            else:
-                currentNode = currentNode.GetNextNode()
+        for node in self.listOfWords:
+            if not letter == node.GetWord()[index]:
+                node.NotPossibleWord()
 
     def CalculateOccuranceScores(self, alphabetStats: AlphabetInfo) -> None:
         """
@@ -195,18 +167,16 @@ class LinkedList:
         """
 
         alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-        currentNode = self.head
-        while currentNode != None:
-            word = currentNode.GetWord()
-            currentNode.ResetOccuranceScore()
-            for letter in word:
+
+        for node in self.listOfWords:
+            node.ResetOccuranceScore()
+            for letter in node.GetWord():
                 try:
                     index = alphabet.index(letter)
                     score = alphabetStats[index].GetStatTotal()
-                    currentNode.IncreaseOccuranceScoreBy(score)
+                    node.IncreaseOccuranceScoreBy(score)
                 except:
                     pass
-            currentNode = currentNode.GetNextNode()
 
     def CalculateKnowledgeScores(self, knowledgeBase: any) -> None:
         """
@@ -216,10 +186,9 @@ class LinkedList:
             knowledgeBase: The agents knowledge base.
         """
 
-        currentNode = self.head
-        while currentNode != None:
-            word = currentNode.GetWord()
-            currentNode.ResetKnowledgeScore()
+        for node in self.listOfWords:
+            word = node.GetWord()
+            node.ResetKnowledgeScore()
             for index, letter in enumerate(word):
                 # Check if letter is in the correct position in goal word
                 if letter in knowledgeBase.correctLetterPos:
@@ -234,7 +203,7 @@ class LinkedList:
                         # agent knows the letter is in the word but not the position
                         if knowledgeBase.correctLetterPos.count(None) > 1:
                             # agent knows there is more than one place left
-                            currentNode.IncreaseKnowledgeScoreBy(1)
+                            node.IncreaseKnowledgeScoreBy(1)
                         elif knowledgeBase.correctLetterPos.count(None) == 1:
                             # there is one place left
                             pass
@@ -253,16 +222,15 @@ class LinkedList:
                         # agent does not know all the letters in the goal
                         if knowledgeBase.correctLetterPos.count(None) > 1:
                             # agent knows there is more than one place left
-                            currentNode.IncreaseKnowledgeScoreBy(2)
+                            node.IncreaseKnowledgeScoreBy(2)
                         elif knowledgeBase.correctLetterPos.count(None) == 1:
                             # there is one place left
-                            currentNode.IncreaseKnowledgeScoreBy(1)
+                            node.IncreaseKnowledgeScoreBy(1)
                         else:
                             # no places are left
                             pass
-            currentNode = currentNode.GetNextNode()
 
-    def GetBestKnowledgeWord(self) -> str:
+    def GetBestKnowledgeWord(self) -> Word:
         """
         Returns the word with the most amount of new knowledge.
         
@@ -270,14 +238,12 @@ class LinkedList:
             The word with the most amount of new knowledge.
         """
         bestScore = 0
-        bestWord = None
-        currentNode = self.head
-        while currentNode != None:
-            if bestScore <= currentNode.GetKnowledgeScore():
-                bestScore = currentNode.GetKnowledgeScore()
-                bestWord = currentNode.GetWord()
-            currentNode = currentNode.GetNextNode()
-        return bestWord
+        bestNode = None
+        for node in self.listOfWords:
+            if bestScore <= node.GetKnowledgeScore():
+                bestScore = node.GetKnowledgeScore()
+                bestNode = node
+        return bestNode
 
     def GetBestOccuranceWord(self) -> str:
         """
@@ -289,12 +255,10 @@ class LinkedList:
 
         bestScore = 0
         bestWord = None
-        currentNode = self.head
-        while currentNode != None:
-            if bestScore < currentNode.GetOccuranceScore():
-                bestScore = currentNode.GetOccuranceScore()
-                bestWord = currentNode.GetWord()
-            currentNode = currentNode.GetNextNode()
+        for node in self.GetPossibleWords():
+            if bestScore < node.GetOccuranceScore():
+                bestScore = node.GetOccuranceScore()
+                bestWord = node.GetWord()
         return bestWord
 
     def CalculateCommonLetters(self, singleLetters: dict, doubleLetters: dict, tripleLetters: dict, quadrupleLetters: dict, quintupleLetters: dict) -> any:
@@ -318,9 +282,9 @@ class LinkedList:
             Dictionary of all letters that appear in every word five times.
         """
 
-        currenctNode = self.GetHead()
-        while currenctNode != None:
-            word = currenctNode.GetWord()
+        possibleWords = self.GetPossibleWords()
+        for node in possibleWords:
+            word = node.GetWord()
             for letter in singleLetters:
                 if letter in word:
                     count = word.count(letter)
@@ -359,21 +323,4 @@ class LinkedList:
                     tripleLetters[letter] = False
                     quadrupleLetters[letter] = False
                     quintupleLetters[letter] = False
-            currenctNode = currenctNode.GetNextNode()
         return singleLetters, doubleLetters, tripleLetters, quadrupleLetters, quintupleLetters
-
-
-
-
-        while self.head != None and self.head.HasLetter(letter):
-            # Remove Node
-            self.head = self.head.GetNextNode()
-            self.length -= 1
-        currentNode = self.head
-        while (currentNode != None and currentNode.GetNextNode() != None):
-            if currentNode.GetNextNode().HasLetter(letter):
-                currentNode.SetNextNode(currentNode.GetNextNode().GetNextNode())
-                self.length -= 1
-            else:
-                currentNode = currentNode.GetNextNode()
-

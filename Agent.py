@@ -1,6 +1,8 @@
 from typing import Any, TypeAlias
-from LinkedList import LinkedList
+from KnowledgeBase import KnowledgeBase
 from CharacterInfo import CharacterInfo
+from Word import Word
+from WordList import WordList
 
 AlphabetInfo: TypeAlias = list[CharacterInfo]
 
@@ -18,10 +20,11 @@ class Agent:
         Initialises the Agent class instance.
         """
 
-        self.possibleWords = self.ReadAllWords()
-        self.alphabetOccurances = self.InitialiseAlphabetInfo()
+        self.__alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+        self.__knowledgeBase = KnowledgeBase()
+        self.__knowledgeBase.wordList = self.ReadAllWords()
+        self.__alphabetOccurances = self.InitialiseAlphabetInfo()
         self.CalculateAlphabetOccurances()
-        # self.alphabetStats.sort(key=lambda x: x.GetStatTotal(), reverse=True)
 
     def ReadAllWords(self) -> Any:
         """
@@ -35,8 +38,8 @@ class Agent:
 
         try:
             allWordsFile = open("ListOfWords.txt", "r")
-            firstWord = allWordsFile.readline()
-            allWords = LinkedList(firstWord)
+            firstWord = allWordsFile.readline().replace('\n', '').lower()
+            allWords = WordList(firstWord)
             for line in allWordsFile:
                 word = line.replace('\n', '').lower()
                 if len(word) != 5:
@@ -57,9 +60,8 @@ class Agent:
             in the alphabet.
         """
 
-        alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
         alphabetStatArray = []
-        for character in alphabet:
+        for character in self.__alphabet:
             alphabetStatArray.append(CharacterInfo(character))
         return alphabetStatArray
 
@@ -69,18 +71,8 @@ class Agent:
         in all the known words.
         """
 
-        for alphabetStat in self.alphabetOccurances:
-            self.possibleWords.CalculateTotalCharacterOccurrences(alphabetStat)
-
-    def GetPossibleWords(self) -> LinkedList:
-        """
-        Returns LinkedList of all possible words.
-
-        Returns:
-            The LinkedList of all possible words.
-        """
-
-        return self.possibleWords
+        for characterOccurances in self.__alphabetOccurances:
+            self.__knowledgeBase.wordList.CalculateTotalCharacterOccurrences(characterOccurances)
 
     def GetRandomWord(self) -> str:
         """
@@ -90,35 +82,59 @@ class Agent:
             A random word.
         """
 
-        return self.possibleWords.GetRandomWord()
+        return self.__knowledgeBase.wordList.GetRandomWord()
 
-    def GetGuessWord(self) -> str:
+    def GetGuessWord(self, attemptNumber: int) -> str:
         """
         Initialises and calculates the stats for all the
         letters in the alphabet and returns the best word
         to use given the current set of possible words
 
+        Args:
+            attemptNumber: The number of attempts the
+            agent has had to solve the puzzle.
+
         Returns:
             The word with the largest score by letter
             occurances.
         """
 
-        self.InitialiseAlphabetInfo()
-        self.CalculateAlphabetOccurances()
-        return self.GetBestWord()
+        if attemptNumber == 0:
+            return self.GetBestOccuranceWord()
+        else:
+            bestNode = self.GetBestKnowledgeWord()
+            # bestNode.PrintNodeInfo()
+            if bestNode.GetKnowledgeScore() == 0:
+                return self.GetBestOccuranceWord()
+            else:
+                return bestNode.GetWord()
 
-    def GetBestWord(self) -> str:
+    def GetBestOccuranceWord(self) -> str:
         """
         Returns the best word to use given the current set
-        of possible words
+        of possible words based on the most common letters
+        it contains.
 
         Returns:
             The word with the largest score by letter
             occurances.
         """
 
-        self.possibleWords.CalculateBestWord(self.alphabetOccurances)
-        return self.possibleWords.GetBestWord()
+        self.__knowledgeBase.wordList.CalculateOccuranceScores(self.__alphabetOccurances)
+        return self.__knowledgeBase.wordList.GetBestOccuranceWord()
+
+    def GetBestKnowledgeWord(self) -> Word:
+        """
+        Returns the best word to use given the current set of
+        possible words based on the amount of knowledge that
+        word will provide.
+        
+        Returns:
+            The word with the largest amount of knowledge.
+        """
+
+        self.__knowledgeBase.wordList.CalculateKnowledgeScores(self.__knowledgeBase)
+        return self.__knowledgeBase.wordList.GetBestKnowledgeWord()
 
     def AddNewWord(self, word: str) -> None:
         """
@@ -128,24 +144,23 @@ class Agent:
             word: The word to add to all possible words.
         """
 
-        self.possibleWords.AddWord(word)
+        self.__knowledgeBase.wordList.AddWord(word)
 
-    def UpdatePossibleWords(self, lettersNotInGoal: list[str], lettersInGoal: list[any], lettersInCorrectPos: list[any]) -> None:
+    def UpdateKnowledgeBase(self, lettersNotInGoal: list[str], lettersInGoal: list[any], lettersInCorrectPos: list[any]) -> None:
         """
-        Updates linked list of all possible words based
-        on the results of the last entered word.
+        Updates the information stored within the knowledge base object.
 
         Args:
             lettersNotInGoal: The array of the letters not in the goal word.
             lettersInGoal: The array of the letter in the goal word in their incorrect location.
             lettersInCorrectPos: The array of the letters in the goal word in their correct location.
         """
-
-        for letter in lettersNotInGoal:
-            self.possibleWords.RemoveNodesWithLetter(letter)
-        for index, letter in enumerate(lettersInGoal):
-            if letter != None:
-                self.possibleWords.RemoveNodesWithLetterAtIndex(letter, index)
-        for index, letter in enumerate(lettersInCorrectPos):
-            if letter != None:
-                self.possibleWords.KeepNodesWithLetterAtIndex(letter, index)
+        self.__knowledgeBase.UpdateBasicKnowledge(lettersNotInGoal, lettersInGoal, lettersInCorrectPos)
+        self.__knowledgeBase.UpdatePossibleWords()
+        self.__alphabetOccurances = self.InitialiseAlphabetInfo()
+        self.CalculateAlphabetOccurances()
+        # print(self.__knowledgeBase.wordList.GetPossibleWordsStr())
+        self.__knowledgeBase.UpdateLettersNotInGoal()
+        self.__knowledgeBase.UpdateIncorrectLetterPos(self.__alphabetOccurances)
+        self.__knowledgeBase.UpdateLettersInGoal()
+        pass

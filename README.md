@@ -101,6 +101,17 @@ So in the -ight example, after the agent guesses sight, the list of possible wor
 
 ## Version History
 
+### v1.2.0
+
+- Created a Score by knowledge system which scores each word based on how much new knowledge that will provide to the agent.
+- Created a Knowledge base class which stores the agents knowledge or letters in and not in the goal word and their correct and incorrect position.
+- The agent now finds more letters that are not in the goal word based on if they do not appear in *all* possible goal words.
+- The agent now finds more letters in the incorrect position based on if they do not appear at that location in *all* possible goal words.
+- LinkedList was removed and replaced with an Array data type.
+- An improved test.py script was created to loop through all known words and finds which words the agent did not solve.
+- Fixed `CheckWord` function so it can deal with duplicate letters.
+- Made all letters in words lowercase.
+
 ### v1.1.2
 
 - Added docstring documentation to all methods, functions, and classes.
