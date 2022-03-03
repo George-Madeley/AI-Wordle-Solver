@@ -102,3 +102,26 @@ class CharacterInfo:
         """
 
         self.character = character
+
+    def HasZero(self) -> bool:
+        """
+        Returns True if there is a zero within the statList.
+        
+        Returns:
+            True if there is a zero within the statList.
+        """
+
+        return 0 in self.statList
+
+    def GetZeroIndexes(self) -> list[int]:
+        """
+        Returns the index of position in the statList that equal zero.
+        
+        Returns:
+            The index of position in the statList that equal zero.
+        """
+        indexes = []
+        for index, value in enumerate(self.statList):
+            if value == 0:
+                indexes.append(index)
+        return indexes
