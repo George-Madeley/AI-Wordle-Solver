@@ -38,6 +38,11 @@ class Node:
         return self.__word
 
     def PrintNodeInfo(self) -> None:
+        """
+        Prints the word, occurance score, knowledge score,
+        and if the word is a possible goal word
+        """
+
         print(self.__word + ", O: " + str(self.__occuranceScore) + ", K: " + str(self.__knowledgeScore) + ", " + str(self.__isPossibleWord))
 
     def GetWord(self) -> str:
@@ -156,10 +161,12 @@ class Node:
         Returns:
             True if word is a possiible goal word.
         """
+        
         return self.__isPossibleWord
 
     def NotPossibleWord(self) -> None:
         """
         Sets word to not a possible goal word.
         """
+
         self.__isPossibleWord = False

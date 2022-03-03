@@ -72,15 +72,17 @@ This in theory works very effectively however, there is one problem that I have 
 
 First off, what is this problem? This problem occurs when the goal word ends in 'ight'. This is becuase there are a lot of five letter words that end in 'ight' ('light', 'tight', 'might', 'night', 'sight', 'fight', 'right', and 'eight'). Because there are more than six words, our agent, in the worst-case scenario, cannot brute force its way to the goal word. Why though?
 
-In an example, lets say the goal word was 'eight'. In our current system, if the enters 'sight' as the first attempt, the agent builds its knowledge base then filters out any word that does not end in 'ight'. If the agent then enters any of the following words in and order: 'might', 'night', 'light', 'right', and 'fight', they will only filter out itself and eventually the agent will lose (worst-case scenario).
+In an example, lets say the goal word was 'eight'. In our current system, if the enters 'sight' as the first attempt, the agent builds its knowledge base then filters out any word that does not end in 'ight'. If the agent then enters any of the following words in and order: 'might', 'night', 'light', 'right', and 'fight', the agent will only filter out the word it entered and eventually the agent will lose (worst-case scenario).
 
 <img src="/images/ight_example.jpg" alt="-ight lose example, by the Akilan" width="200">
 
 **Figure 2** - Wordle -ight example. [3]
 
-Now, there is a much more efficient way to go about this problem by using the word 'later'. If after the first guess, the agent entered 'later', Wordle would tell it what letters in 'later' are in the goal word. In this case, it would say that 'l', 'a', 't', and 'r' are not in the goal word but 'e' is, therefore, 'eight' would be the last word in the list of the all possible words be the thrid and final attempt. However, the question is, when would the agent know to pick 'later' and other words in similar situations? (because we cant hardcode this answer into the agent). We do it based on the knowledge each word provides.
+Now, there is a much more efficient way to go about this problem by using the word 'later'. If after the first guess, the agent entered 'later', Wordle would tell it what letters in 'later' are in the goal word. In this case, it would say that 'l', 'a', 't', and 'r' are not in the goal word but 'e' is, therefore, 'eight' would be the goal word. However, the question is, when would the agent know to pick 'later' and other words in similar situations? (because we cant hardcode this answer into the agent). We do it based on the knowledge each word provides.
 
-Every time the agent enters in a word, it learns a number of things. The first time it enters a word, it learns tne things: 'Is this letter in the goal word?' and 'Is this letter in the correct position?' for all five letters. In the -ight example [3] above, everytime the player entered in 'might', 'fight', 'right'... they were only learning one thing: "Is this letter in the goal word?" (they would not be learning if that letter is in the correct position as there is only one position remaining). However, if instead they entered in 'later', they would learn up to nine things.
+#### Knowledge Score
+
+Every time the agent enters in a word, it learns a number of things. The first time it enters a word, it learns ten things: 'Is this letter in the goal word?' and 'Is this letter in the correct position?' for all five letters. In the -ight example [3] above, everytime the player entered in 'might', 'fight', 'right'... they were only learning one thing: "Is this letter in the goal word?" (they would not be learning if that letter is in the correct position as there is only one position remaining). However, if instead they entered in 'later', they would learn up to nine things.
 
 I could replace the scoring by occurances system with scoring by knowledge system however, it causes a new problem to efficiency. Using the knowledge method, the agent would use the first five attempts to use every letter possible, then in the final attempt, it would, or would not, guess the goal word.
 
@@ -91,7 +93,7 @@ I could replace the scoring by occurances system with scoring by knowledge syste
     uvwxy
     GOAL WORD HERE
 
-This is under the assumption of the best case scenario where the agent knows five words which in total use 25 letters of the alphabet. Even with this method, there is chance that the agent will get the right letters but in the incorrect place. So, how can this issue be solved? We need to improve how the agent scores based on knowledge.
+Even with this method, there is chance that the agent will get the right letters but in the incorrect place. So, how can this issue be solved? We need to improve how the agent scores based on knowledge. To do this, the agent needs to infer as much knowledge as possible from the information already known.
 
 Earlier, I stated that 'later' would get a score of nine, however, that is not the case. In the example [3], there was only one letter that needed to be known, as a result, the agent already knows the position for that letter. therefore, 'later' would get a score, at most, of five. But this still does not solve our problem. So what else needs to be done?
 
@@ -99,7 +101,40 @@ The agent is a knowledge-base AI and the key part about this type of AI is that 
 
 So in the -ight example, after the agent guesses sight, the list of possible words would only consist of words ending in -ight. These words are as follows: 'tight', 'might', 'night', 'light', 'fight', 'right', and 'eight'. Each one would get a knowledge score of one. However, because the last letter could be 't', 'm', 'n', 'l', 'f', 'r', or 'e', any other letter such 'b' or 'd' would provide zero knowledge. Therefore, if the agent ranked every word it knew based on its score by knowledge, a word such as later would be placed very high with a score of four (the agent knows 'a' is not one of the possible letters and therefore it does not contribute to that words knowledge score).
 
+These are some examples of how the agent can infer knowledge based on the information it already knows. There are four ways in which the agent can infer knowledge:
+
+- Finds more letters not in goal by scanning through all possible goal words and finding letters not in any of the possible goal words.
+- Finds more letters not in a certain position by finding location where a given letter never appears in all possible words. It will do this for every letter of alphabet.
+- Finds more letters that are in the goal word by scanning through all possible words and finds letters common letters.
+
+By using inferance, our agent can efficiently use less words in total by using words that provide it with the most amount of relevant information.
+
+#### Using knowledge and score together
+
+The first word we guess will always provide ten pieces of new knowledge, therefore, it would be better to use the word that contains the letters with the most amount of occurances.
+
+In addition to this, if the agent ever picks a word which provides zero new knowledge, the agent should then pick a word from the list of possible goal words which contains the letters with the most amount of occurances.
+
+### Testing
+
+The agent was tested using 530 words and only failed eight. Therefore, a success rate of 98.4906%. The agent took on average 4.0434 attempts to solve each word. The words that the agent failed to solve are:
+
+- tally
+- laura
+- laxly
+- gayly
+- fatly
+- bally
+- aloof
+- along
+
 ## Version History
+
+### v1.2.2
+
+- Tested the agent completely.
+- Included attempt number and average number of attempts to Test.py.
+- Added docstrings to more classes and methods.
 
 ### v1.2.1
 

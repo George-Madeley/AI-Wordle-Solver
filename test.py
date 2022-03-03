@@ -59,7 +59,17 @@ def isGoalWord(guessWord: str, GOALWORD: str) -> bool:
 
     return guessWord == GOALWORD
 
-def RunGame(GOALWORD) -> bool:
+def RunGame(GOALWORD) -> list:
+    """
+    Runs the game with the given goal word.
+    
+    Args:
+        GOALWORD: the goal word the agent has to guess.
+        
+    Returns:
+        True if the agent gets the word within the six attempts.
+    """
+
     agent = Agent()
     gameOver = False
     numberOfAttempts = 0
@@ -68,24 +78,26 @@ def RunGame(GOALWORD) -> bool:
         # print("<><><><><><><><><><><>")
         # print("Goal Word: " + GOALWORD)
         guessedWord = agent.GetGuessWord(numberOfAttempts)
+        numberOfAttempts += 1
         # print("Guessing: " + str(guessedWord))
         # print("===================")
         gameOver = isGoalWord(guessedWord, GOALWORD)
         if gameOver:
             continue
-        numberOfAttempts += 1
         incorrectLetters, lettersIncorrectPos, lettersCorrectPos = CheckWord(guessedWord, GOALWORD)
         agent.UpdateKnowledgeBase(incorrectLetters, lettersIncorrectPos, lettersCorrectPos)
 
-    if numberOfAttempts >= 6:
+    if numberOfAttempts >= 6 and not gameOver:
         # agent.AddNewWord(input("New Word >? "))
-        return False
+        return False, numberOfAttempts
+    return True, numberOfAttempts
 
-    return True
+# RunGame('enter')
 
-# RunGame('arise')
 
+# Test the function of the agent by testing it against all known words.
 noDuplicates = []
+totalAttempts = 0
 allWordsFile = open("ListOfWords.txt", "r")
 for line in allWordsFile:
     GOALWORD = line.replace('\n', '').lower()
@@ -95,10 +107,12 @@ for line in allWordsFile:
     if len(GOALWORD) != 5:
         print("ERROR: " + GOALWORD + " has a length of more than five")
     else:
-        result = RunGame(GOALWORD)
+        result, attempts = RunGame(GOALWORD)
+        totalAttempts += attempts
         if result:
-            print('\033[0;32;40m ' + str(GOALWORD) + ' \033[0;0m')
+            print('\033[0;32;40m ' + str(GOALWORD) + "   " + str(attempts) + ' \033[0;0m')
         else:
-            print('\033[0;31;40m ' + str(GOALWORD) + ' \033[0;0m')
+            print('\033[0;31;40m ' + str(GOALWORD) + "   " + str(attempts) + ' \033[0;0m')
+print("Average Number of Attempts: " + str(totalAttempts / len(noDuplicates)))
 allWordsFile.close()
 

@@ -84,7 +84,7 @@ class WordList:
     def CalculateTotalCharacterOccurrences(self, characterOccurances: CharacterInfo) -> None:
         """
         Calculates the total number of times a given
-        letter occurs within all known words.
+        letter occurs within all possible words.
         
         Args:
             characterOccurances: The stats object for the given letter.
@@ -97,6 +97,7 @@ class WordList:
     def AddWord(self, newWord: str) -> None:
         """
         Adds a new node to the list of words.
+
         Args:
             newWord: The value of the new node.
         """
@@ -106,8 +107,9 @@ class WordList:
 
     def RemoveNodesWithLetter(self, letter: str) -> None:
         """
-        Removes any node in the list where the nodes
-        word contains a given letter.
+        Sets the attribute isPossibleWord to False of any
+        node in the list where the nodes word contains a
+        given letter.
 
         Args:
             letter: The letter to be removed.
@@ -119,8 +121,9 @@ class WordList:
 
     def RemoveNodesWithLetterAtIndex(self, letter: str, index: int) -> None:
         """
-        Removes any node in the list where the nodes
-        word contains a given letter at a given index.
+        Sets the attribute isPossibleWord to False of any
+        node in the list where the nodes word contains a
+        given letter at a given index.
 
         Args:
             letter: The letter to be removed.
@@ -133,8 +136,9 @@ class WordList:
 
     def KeepNodesWithLetter(self, letter: str) -> None:
         """
-        Keeps any node in the list where the nodes word
-        contains a given letter.
+        Sets the attribute isPossibleWord to True of
+        any node in the list where the nodes word contains
+        a given letter.
 
         Args:
             letter: The letter to keep.
@@ -146,8 +150,9 @@ class WordList:
 
     def KeepNodesWithLetterAtIndex(self, letter: str, index: int) -> None:
         """
-        Keeps any node in the list where the nodes word
-        contains a given letter at a given index.
+        Sets the attribute isPossibleWord to True of any node
+        in the list where the nodes word contains a given letter
+        at a given index.
 
         Args:
             letter: The letter to keep.

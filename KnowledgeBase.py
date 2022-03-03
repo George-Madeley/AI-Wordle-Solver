@@ -4,7 +4,25 @@ from CharacterInfo import CharacterInfo
 AlphabetInfo: TypeAlias = list[CharacterInfo]
 
 class KnowledgeBase:
+    """
+    Holds all of the agents known information.
+    
+    Contains a series of methods used to infer more knowledge
+    based on all the known information.
+    
+    Attributes:
+        correctLetterPos: An array of all the letters in the goal word in the correct position.
+        incorrectLetterPos: An array of lists containing all the letters in the incorrect position.
+        lettersInGoal: All the letters in the goal word.
+        lettersNotInGoal: All the letters not in the goal word.
+        wordList: A list of all the known words.
+    """
+
     def __init__(self) -> None:
+        """
+        Initialises the knowledge base with its attributes.
+        """
+
         self.__alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
         self.correctLetterPos = [None, None, None, None, None]
         self.lettersInGoal = []
