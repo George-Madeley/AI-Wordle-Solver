@@ -96,23 +96,27 @@ def RunGame(GOALWORD) -> list:
 
 
 # Test the function of the agent by testing it against all known words.
-noDuplicates = []
-totalAttempts = 0
-allWordsFile = open("ListOfWords.txt", "r")
-for line in allWordsFile:
-    GOALWORD = line.replace('\n', '').lower()
-    if GOALWORD in noDuplicates:
-        continue
-    noDuplicates.append(GOALWORD)
-    if len(GOALWORD) != 5:
-        print("ERROR: " + GOALWORD + " has a length of more than five")
-    else:
-        result, attempts = RunGame(GOALWORD)
-        totalAttempts += attempts
-        if result:
-            print('\033[0;32;40m ' + str(GOALWORD) + "   " + str(attempts) + ' \033[0;0m')
+def main(RunGame):
+    noDuplicates = []
+    totalAttempts = 0
+    allWordsFile = open("ListOfWords.txt", "r")
+    for line in allWordsFile:
+        GOALWORD = line.replace('\n', '').lower()
+        if GOALWORD in noDuplicates:
+            continue
+        noDuplicates.append(GOALWORD)
+        if len(GOALWORD) != 5:
+            print("ERROR: " + GOALWORD + " has a length of more than five")
         else:
-            print('\033[0;31;40m ' + str(GOALWORD) + "   " + str(attempts) + ' \033[0;0m')
-print("Average Number of Attempts: " + str(totalAttempts / len(noDuplicates)))
-allWordsFile.close()
+            result, attempts = RunGame(GOALWORD)
+            totalAttempts += attempts
+            if result:
+                print('\033[0;32;40m ' + str(GOALWORD) + "   " + str(attempts) + ' \033[0;0m')
+            else:
+                print('\033[0;31;40m ' + str(GOALWORD) + "   " + str(attempts) + ' \033[0;0m')
+    print("Average Number of Attempts: " + str(totalAttempts / len(noDuplicates)))
+    allWordsFile.close()
 
+if __name__ == "__main__":  
+    # main(RunGame)
+    pass

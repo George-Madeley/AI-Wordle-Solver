@@ -1,7 +1,6 @@
-from typing import Any, TypeAlias
+from typing import TypeAlias
 from KnowledgeBase import KnowledgeBase
 from CharacterInfo import CharacterInfo
-from Node import Node
 from WordList import WordList
 
 AlphabetInfo: TypeAlias = list[CharacterInfo]
@@ -26,7 +25,7 @@ class Agent:
         self.__alphabetOccurances = self.InitialiseAlphabetInfo()
         self.CalculateAlphabetOccurances()
 
-    def ReadAllWords(self) -> Any:
+    def ReadAllWords(self) -> any:
         """
         Reads all the words from the ListOfWords.txt
         file and stores them as a LinkedList. Returns
@@ -123,7 +122,7 @@ class Agent:
         self.__knowledgeBase.wordList.CalculateOccuranceScores(self.__alphabetOccurances)
         return self.__knowledgeBase.wordList.GetBestOccuranceWord()
 
-    def GetBestKnowledgeWord(self) -> Node:
+    def GetBestKnowledgeWord(self) -> any:
         """
         Returns the best word to use given the current set of
         possible words based on the amount of knowledge that
