@@ -1,9 +1,16 @@
+import math
 from typing import TypeAlias
 from KnowledgeBase import KnowledgeBase
 from CharacterInfo import CharacterInfo
 from WordList import WordList
 
+from PIL import Image
+import pytesseract
+
 AlphabetInfo: TypeAlias = list[CharacterInfo]
+
+WORDLEPOS = {"x": 1670, "y": 705}
+WORDLESIZE = {"x": 500, "y": 600}
 
 class Agent:
     """
@@ -163,3 +170,39 @@ class Agent:
         self.__knowledgeBase.UpdateIncorrectLetterPos(self.__alphabetOccurances)
         self.__knowledgeBase.UpdateLettersInGoal()
         pass
+
+    def ReadImage(self):
+        """
+        Opens a screenshot of the image and reads the information from it.
+        """
+        with Image.open("images/screenshot.png") as screenshot:
+            # Wordle box (on my PC) is 500x600 at 1671, 744
+            # left, upper, right, lower bounds
+            cropBoxSize = (WORDLEPOS["x"], WORDLEPOS["y"], WORDLEPOS["x"] + WORDLESIZE["x"], WORDLEPOS["y"] + WORDLESIZE["y"])
+            wordleImage = screenshot.crop(box=cropBoxSize)
+            wordleImage.show()
+
+            dividedImage = self.__DivideImage(wordleImage)
+
+    def __DivideImage(self, wordleImage: Image) -> list:
+        """
+        Divides up the provided image of Wordle into 30 smaller images of each character.
+        
+        Args:
+            wordleImage: The image of Wordle.
+            
+        Returns:
+            2D-list of Images.
+        """
+        dividedImage = []
+        imageWidth = math.floor(WORDLESIZE["x"] / 5)
+        imageHeight = math.floor(WORDLESIZE["y"] / 6)
+        for y in range(6):
+            dividedRow = []
+            for x in range(5):
+                    # left, upper, right, lower bounds
+                tempBoxSize = (x * imageWidth, y * imageHeight, (x + 1) * imageWidth, (y + 1) * imageHeight)
+                tempImage = wordleImage.crop(box=tempBoxSize)
+                dividedRow.append(tempImage)
+            dividedImage.append(dividedRow)
+        return dividedImage
