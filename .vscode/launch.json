@@ -8,7 +8,7 @@
             "name": "Wordle Test",
             "type": "python",
             "request": "launch",
-            "program": "main.py",
+            "program": "Main.py",
             "console": "integratedTerminal",
             "justMyCode": true
         },
@@ -16,7 +16,7 @@
             "name": "CMD Test",
             "type": "python",
             "request": "launch",
-            "program": "test.py",
+            "program": "Test.py",
             "console": "integratedTerminal"
         }
     ]
