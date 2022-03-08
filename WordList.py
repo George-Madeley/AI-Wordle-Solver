@@ -1,7 +1,7 @@
 from typing import TypeAlias
 from CharacterInfo import CharacterInfo
-from Node import Node
 from random import randint
+from node import Node
 
 AlphabetInfo: TypeAlias = list[CharacterInfo]
 
@@ -235,7 +235,7 @@ class WordList:
                             # no places are left
                             pass
 
-    def GetBestKnowledgeWord(self) -> Node:
+    def GetBestKnowledgeWord(self) -> any:
         """
         Returns the word with the most amount of new knowledge.
         

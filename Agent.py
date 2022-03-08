@@ -1,3 +1,4 @@
+from ast import List
 import math
 from typing import TypeAlias
 from KnowledgeBase import KnowledgeBase
@@ -9,8 +10,8 @@ import pytesseract
 
 AlphabetInfo: TypeAlias = list[CharacterInfo]
 
-WORDLEPOS = {"x": 1670, "y": 705}
-WORDLESIZE = {"x": 500, "y": 600}
+WORDLEPOS = {"x": 1676, "y": 711}
+WORDLESIZE = {"x": 495, "y": 599}
 
 class Agent:
     """
@@ -171,19 +172,28 @@ class Agent:
         self.__knowledgeBase.UpdateLettersInGoal()
         pass
 
-    def ReadImage(self):
+    
+    
+
+    def ReadImage(self, attemptNumber: int) -> list:
         """
         Opens a screenshot of the image and reads the information from it.
+
+        Args:
+            attemptNumber: The attempt number.
         """
+
         with Image.open("images/screenshot.png") as screenshot:
             # Wordle box (on my PC) is 500x600 at 1671, 744
             # left, upper, right, lower bounds
             cropBoxSize = (WORDLEPOS["x"], WORDLEPOS["y"], WORDLEPOS["x"] + WORDLESIZE["x"], WORDLEPOS["y"] + WORDLESIZE["y"])
             wordleImage = screenshot.crop(box=cropBoxSize)
-            wordleImage.show()
+            # wordleImage.show()
 
             dividedImage = self.__DivideImage(wordleImage)
-
+            colorList = [self.GetColor(colorImage) for colorImage in dividedImage[attemptNumber]]
+            return colorList
+            
     def __DivideImage(self, wordleImage: Image) -> list:
         """
         Divides up the provided image of Wordle into 30 smaller images of each character.
@@ -195,14 +205,58 @@ class Agent:
             2D-list of Images.
         """
         dividedImage = []
-        imageWidth = math.floor(WORDLESIZE["x"] / 5)
-        imageHeight = math.floor(WORDLESIZE["y"] / 6)
+        imageWidth = math.floor(WORDLESIZE["x"] / 5) + 3
+        imageHeight = math.floor(WORDLESIZE["y"] / 6) + 4
+        colorBoxSize = 25
         for y in range(6):
             dividedRow = []
             for x in range(5):
                     # left, upper, right, lower bounds
-                tempBoxSize = (x * imageWidth, y * imageHeight, (x + 1) * imageWidth, (y + 1) * imageHeight)
+                tempBoxSize = (x * imageWidth, y * imageHeight, x * imageWidth + colorBoxSize, y * imageWidth + colorBoxSize)
                 tempImage = wordleImage.crop(box=tempBoxSize)
+                # tempImage.show()
                 dividedRow.append(tempImage)
             dividedImage.append(dividedRow)
         return dividedImage
+
+    def GetColor(self, image: Image) -> str:
+        """
+        Gets the background color of the image.
+        """
+
+        upperWeight = 160
+        lowerWeight = 50
+        colors = image.getcolors()
+        colors = [color for color in colors if (
+            (color[-1][0] < upperWeight and color[-1][0] > lowerWeight) or
+            (color[-1][1] < upperWeight and color[-1][1] > lowerWeight) or
+            (color[-1][2] < upperWeight and color[-1][2] > lowerWeight))]
+        finalColor = [0, 0, 0]
+        for color in colors:
+            finalColor[0] += color[-1][0]
+            finalColor[1] += color[-1][1]
+            finalColor[2] += color[-1][2]
+        finalColor[0] /= len(colors)
+        finalColor[1] /= len(colors)
+        finalColor[2] /= len(colors)
+
+        # print(finalColor)
+        margin = 10
+        colorDict = {"grey": (58, 58, 60), "yellow": (181, 159, 59), "green": (83, 141, 78)}
+        for color, colorCode in colorDict.items():
+            if ((colorCode[0] - margin) < finalColor[0] and (colorCode[0] + margin) > finalColor[0] and
+                (colorCode[1] - margin) < finalColor[1] and (colorCode[1] + margin) > finalColor[1] and
+                (colorCode[2] - margin) < finalColor[2] and (colorCode[2] + margin) > finalColor[2]):
+                return color
+        return None
+
+    def EnterGuessWord(self, word: str) -> bool:
+        """
+        Enters in the word to Wordle.
+        
+        Args:
+            word: The word to enter.
+            
+        Returns:
+            True if the word was entered in successfully
+        """

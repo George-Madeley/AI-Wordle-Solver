@@ -1,6 +1,10 @@
 # AI-Wordle-Solver
 
-## Version History:
+## Version History
+
+### Hi
+
+- Can now read colors form the images.
 
 ### Hello
 
