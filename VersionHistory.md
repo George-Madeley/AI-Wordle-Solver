@@ -2,6 +2,10 @@
 
 ## Version History
 
+### v1.3.4
+
+- Added the ability to add a new word to the ListOfWords.txt if the agent loses a game due to not knowing the word (Unfortunately, this can not be done automatically as pytesseract has a difficult time detecting letters from screenshjots of Wordle).
+
 ### v1.3.3
 
 - IT WORKS!!!

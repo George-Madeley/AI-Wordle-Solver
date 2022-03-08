@@ -329,3 +329,19 @@ class WordList:
                     quadrupleLetters[letter] = False
                     quintupleLetters[letter] = False
         return singleLetters, doubleLetters, tripleLetters, quadrupleLetters, quintupleLetters
+
+    def ContainsWord(self, word: str) -> bool:
+        """
+        Checks if a given word is in the list.
+        
+        Args:
+            word: The word to be found.
+            
+        Returns:
+            True if the word is found.
+        """
+
+        for node in self.listOfWords:
+            if node.GetWord() == word:
+                return True
+        return False

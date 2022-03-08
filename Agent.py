@@ -151,7 +151,9 @@ class Agent:
             word: The word to add to all possible words.
         """
 
-        self.__knowledgeBase.wordList.AddWord(word)
+        if not self.__knowledgeBase.wordList.ContainsWord(word):
+            with open('ListOfWords.txt', 'a') as wordFile:
+                wordFile.write(f"\n{word}")
 
     def UpdateKnowledgeBase(self, lettersNotInGoal: list[str], lettersInGoal: list[any], lettersInCorrectPos: list[any]) -> None:
         """
@@ -199,7 +201,6 @@ class Agent:
             else:
                 raise ValueError(f"Color, {color} is not one of the predefined colors")
         return incorrectLetters, lettersIncorrectPos, lettersCorrectPos
-
 
     def ReadImage(self, attemptNumber: int, filePath: str) -> list:
         """
