@@ -173,7 +173,23 @@ class Agent:
         pass
 
     
-    
+    def GetInformation(self, guessedWord: str, attemptNumber: int):
+        guessedWord = guessedWord.rstrip("\n")
+        colorList = self.ReadImage(attemptNumber)
+        incorrectLetters = []
+        lettersIncorrectPos = [None, None, None, None, None]
+        lettersCorrectPos = [None, None, None, None, None]
+        for index, (letter, color) in enumerate(zip(guessedWord, colorList)):
+            if color == "grey":
+                incorrectLetters.append(letter)
+            elif color == "yellow":
+                lettersIncorrectPos[index] = letter
+            elif color == "green":
+                lettersCorrectPos[index] = letter
+            else:
+                raise ValueError(f"Color, {color} is not one of the predefined colors")
+        return incorrectLetters, lettersIncorrectPos, lettersCorrectPos
+
 
     def ReadImage(self, attemptNumber: int) -> list:
         """

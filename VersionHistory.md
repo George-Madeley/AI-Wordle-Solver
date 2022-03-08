@@ -2,6 +2,10 @@
 
 ## Version History
 
+### Gutentag
+
+- Can now infer which letters are in teh word and their position using the colors.
+
 ### Hi
 
 - Can now read colors form the images.
