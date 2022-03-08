@@ -1,7 +1,3 @@
-from ctypes import Array
-from numpy import array
-
-
 class CharacterInfo:
     """
     Holds information of a given character.
