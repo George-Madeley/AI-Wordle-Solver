@@ -6,7 +6,7 @@ from CharacterInfo import CharacterInfo
 from WordList import WordList
 
 from PIL import Image
-import pytesseract
+import pyautogui
 
 AlphabetInfo: TypeAlias = list[CharacterInfo]
 
@@ -172,10 +172,20 @@ class Agent:
         self.__knowledgeBase.UpdateLettersInGoal()
         pass
 
-    
-    def GetInformation(self, guessedWord: str, attemptNumber: int):
+
+    def GetScreenshot(self) -> str:
+        """
+        Takes a screenshot and returns the file path to the screenshot.
+        
+        Returns:
+            The string of the screenshot filepath.
+        """
+        pyautogui.screenshot('images\shot.png')
+        return 'images\shot.png'
+
+    def GetInformation(self, guessedWord: str, attemptNumber: int, filePath: str):
         guessedWord = guessedWord.rstrip("\n")
-        colorList = self.ReadImage(attemptNumber)
+        colorList = self.ReadImage(attemptNumber, filePath)
         incorrectLetters = []
         lettersIncorrectPos = [None, None, None, None, None]
         lettersCorrectPos = [None, None, None, None, None]
@@ -191,26 +201,27 @@ class Agent:
         return incorrectLetters, lettersIncorrectPos, lettersCorrectPos
 
 
-    def ReadImage(self, attemptNumber: int) -> list:
+    def ReadImage(self, attemptNumber: int, filePath: str) -> list:
         """
         Opens a screenshot of the image and reads the information from it.
 
         Args:
             attemptNumber: The attempt number.
+            filePath: The file path to the screenshot.
         """
 
-        with Image.open("images/screenshot.png") as screenshot:
+        with Image.open(filePath) as screenshot:
             # Wordle box (on my PC) is 500x600 at 1671, 744
             # left, upper, right, lower bounds
             cropBoxSize = (WORDLEPOS["x"], WORDLEPOS["y"], WORDLEPOS["x"] + WORDLESIZE["x"], WORDLEPOS["y"] + WORDLESIZE["y"])
             wordleImage = screenshot.crop(box=cropBoxSize)
             # wordleImage.show()
 
-            dividedImage = self.__DivideImage(wordleImage)
+            dividedImage = self.DivideImage(wordleImage)
             colorList = [self.GetColor(colorImage) for colorImage in dividedImage[attemptNumber]]
             return colorList
             
-    def __DivideImage(self, wordleImage: Image) -> list:
+    def DivideImage(self, wordleImage: Image) -> list:
         """
         Divides up the provided image of Wordle into 30 smaller images of each character.
         
@@ -240,31 +251,35 @@ class Agent:
         Gets the background color of the image.
         """
 
-        upperWeight = 160
-        lowerWeight = 50
-        colors = image.getcolors()
-        colors = [color for color in colors if (
-            (color[-1][0] < upperWeight and color[-1][0] > lowerWeight) or
-            (color[-1][1] < upperWeight and color[-1][1] > lowerWeight) or
-            (color[-1][2] < upperWeight and color[-1][2] > lowerWeight))]
-        finalColor = [0, 0, 0]
-        for color in colors:
-            finalColor[0] += color[-1][0]
-            finalColor[1] += color[-1][1]
-            finalColor[2] += color[-1][2]
-        finalColor[0] /= len(colors)
-        finalColor[1] /= len(colors)
-        finalColor[2] /= len(colors)
+        try:
+            upperWeight = 160
+            lowerWeight = 50
+            colors = image.getcolors()
+            colors = [color for color in colors if (
+                (color[-1][0] < upperWeight and color[-1][0] > lowerWeight) or
+                (color[-1][1] < upperWeight and color[-1][1] > lowerWeight) or
+                (color[-1][2] < upperWeight and color[-1][2] > lowerWeight))]
+            finalColor = [0, 0, 0]
+            for color in colors:
+                finalColor[0] += color[-1][0]
+                finalColor[1] += color[-1][1]
+                finalColor[2] += color[-1][2]
+            finalColor[0] /= len(colors)
+            finalColor[1] /= len(colors)
+            finalColor[2] /= len(colors)
+            
 
-        # print(finalColor)
-        margin = 10
-        colorDict = {"grey": (58, 58, 60), "yellow": (181, 159, 59), "green": (83, 141, 78)}
-        for color, colorCode in colorDict.items():
-            if ((colorCode[0] - margin) < finalColor[0] and (colorCode[0] + margin) > finalColor[0] and
-                (colorCode[1] - margin) < finalColor[1] and (colorCode[1] + margin) > finalColor[1] and
-                (colorCode[2] - margin) < finalColor[2] and (colorCode[2] + margin) > finalColor[2]):
-                return color
-        return None
+            # print(finalColor)
+            margin = 10
+            colorDict = {"grey": (58, 58, 60), "yellow": (181, 159, 59), "green": (83, 141, 78)}
+            for color, colorCode in colorDict.items():
+                if ((colorCode[0] - margin) < finalColor[0] and (colorCode[0] + margin) > finalColor[0] and
+                    (colorCode[1] - margin) < finalColor[1] and (colorCode[1] + margin) > finalColor[1] and
+                    (colorCode[2] - margin) < finalColor[2] and (colorCode[2] + margin) > finalColor[2]):
+                    return color
+            return None
+        except ZeroDivisionError:
+            return "green"
 
     def EnterGuessWord(self, word: str) -> bool:
         """

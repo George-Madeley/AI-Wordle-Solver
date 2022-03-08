@@ -1,5 +1,7 @@
 from Agent import Agent
 
+import pygetwindow
+
 
 def CheckWord(guessedWord: str, GOALWORD: str) -> any:
     """
