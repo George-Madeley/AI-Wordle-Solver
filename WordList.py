@@ -18,15 +18,12 @@ class WordList:
         length: The length of the list.
     """
 
-    def __init__(self, word: str = None) -> None:
+    def __init__(self) -> None:
         """
         Initialises the list.
-        
-        Args:
-            word: The word of the first node (default None).
         """
 
-        self.listOfWords = [Node(word)]
+        self.listOfWords = []
         self.__possibleWords = []
         
     def __str__(self) -> str:
@@ -345,3 +342,14 @@ class WordList:
             if node.GetWord() == word:
                 return True
         return False
+
+    def RemoveWord(self, removeWord: str) -> None:
+        """
+        Removes a given word from all lists.
+        
+        Args:
+            removeWord: The word to remove.
+        """
+
+        self.listOfWords = [node for node in self.listOfWords if node.GetWord() != removeWord]
+        self.__possibleWords = [node for node in self.listOfWords if node.GetWord() != removeWord]

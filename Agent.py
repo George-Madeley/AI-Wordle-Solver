@@ -43,19 +43,13 @@ class Agent:
             A LinkedList of all known words.
         """
 
-        try:
-            allWordsFile = open("ListOfWords.txt", "r")
-            firstWord = allWordsFile.readline().replace('\n', '').lower()
-            allWords = WordList(firstWord)
+        allWords = WordList()
+        with open("ListOfWords.txt", "r") as allWordsFile:
             for line in allWordsFile:
-                word = line.replace('\n', '').lower()
-                if len(word) != 5:
-                    print("ERROR: " + word + " has a length of more than five")
-                    raise ValueError
-                allWords.AddWord(word)
-            return allWords
-        except ValueError:
-            print("ERROR")
+                word = line.strip('\n').lower()
+                if len(word) == 5:
+                    allWords.AddWord(word)
+        return allWords
 
     def InitialiseAlphabetInfo(self) -> AlphabetInfo:
         """
@@ -153,7 +147,25 @@ class Agent:
 
         if not self.__knowledgeBase.wordList.ContainsWord(word):
             with open('ListOfWords.txt', 'a') as wordFile:
-                wordFile.write(f"\n{word}")
+                wordFile.write(f"{word}\n")
+
+    def RemoveWord(self, removeWord: str) -> None:
+        """
+        Removes a given word from the list of words.
+
+        Args:
+            removeWord: The word to remove.
+        """
+        if self.__knowledgeBase.wordList.ContainsWord(removeWord):
+            self.__knowledgeBase.wordList.RemoveWord(removeWord)
+            with open('ListOfWords.txt', 'r') as wordFile:
+                words = wordFile.readlines()
+            with open('ListOfWords.txt', 'w') as wordFile:
+                for word in words:
+                    if word.strip('\n') == removeWord:
+                        continue
+                    else:
+                        wordFile.write(word)
 
     def UpdateKnowledgeBase(self, lettersNotInGoal: list[str], lettersInGoal: list[any], lettersInCorrectPos: list[any]) -> None:
         """
@@ -185,9 +197,8 @@ class Agent:
         pyautogui.screenshot('images\shot.png')
         return 'images\shot.png'
 
-    def GetInformation(self, guessedWord: str, attemptNumber: int, filePath: str):
+    def GetInformation(self, guessedWord: str, colorList: list):
         guessedWord = guessedWord.rstrip("\n")
-        colorList = self.ReadImage(attemptNumber, filePath)
         incorrectLetters = []
         lettersIncorrectPos = [None, None, None, None, None]
         lettersCorrectPos = [None, None, None, None, None]
@@ -234,8 +245,8 @@ class Agent:
         """
         dividedImage = []
         imageWidth = math.floor(WORDLESIZE["x"] / 5) + 3
-        imageHeight = math.floor(WORDLESIZE["y"] / 6) + 4
-        colorBoxSize = 25
+        imageHeight = math.floor(WORDLESIZE["y"] / 6) + 5
+        colorBoxSize = 20
         for y in range(6):
             dividedRow = []
             for x in range(5):
@@ -251,15 +262,11 @@ class Agent:
         """
         Gets the background color of the image.
         """
-
+        # image.show()
         try:
             upperWeight = 160
-            lowerWeight = 50
             colors = image.getcolors()
-            colors = [color for color in colors if (
-                (color[-1][0] < upperWeight and color[-1][0] > lowerWeight) or
-                (color[-1][1] < upperWeight and color[-1][1] > lowerWeight) or
-                (color[-1][2] < upperWeight and color[-1][2] > lowerWeight))]
+            colors = [color for color in colors if (color[-1][0] < upperWeight or color[-1][1] < upperWeight or color[-1][2] < upperWeight)]
             finalColor = [0, 0, 0]
             for color in colors:
                 finalColor[0] += color[-1][0]
@@ -269,10 +276,10 @@ class Agent:
             finalColor[1] /= len(colors)
             finalColor[2] /= len(colors)
             
-
             # print(finalColor)
+
             margin = 10
-            colorDict = {"grey": (58, 58, 60), "yellow": (181, 159, 59), "green": (83, 141, 78)}
+            colorDict = {"grey": (58, 58, 60), "yellow": (181, 159, 59), "green": (83, 141, 78), "black": (18, 18, 19)}
             for color, colorCode in colorDict.items():
                 if ((colorCode[0] - margin) < finalColor[0] and (colorCode[0] + margin) > finalColor[0] and
                     (colorCode[1] - margin) < finalColor[1] and (colorCode[1] + margin) > finalColor[1] and
