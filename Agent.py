@@ -303,7 +303,7 @@ class Agent:
         """
 
 
-    def RecordData(self, numberOfAttempts: int, guessedWords: list) -> None:
+    def RecordData(self, numberOfAttempts: int, guessedWords: list, removedWords: list, addedWord: str) -> None:
         """
         Records how the last game went and appends it to a file.
         
@@ -316,9 +316,39 @@ class Agent:
         with open('Record.txt', 'a', encoding="UTF-8") as recordFile:
             recordFile.write(f"=======================================\n")
             recordFile.write(f"Date: {date.today()}\n")
-            recordFile.write(f"Number of attempts: {numberOfAttempts}/6\n")
+            recordFile.write(f"\nNumber of attempts: {numberOfAttempts}/6\n")
             for attempt, word in enumerate(guessedWords):
                 recordFile.write(f"Attempt {attempt}: {word}\n")
+            if removedWords:
+                recordFile.write(f"\nRemoved Words:\n")
+                for removedWord in removedWords:
+                    recordFile.write(f"\t- {removedWord}\n")
+            if addedWord:
+                recordFile.write(f"\nAdded Words:\n")
+                recordFile.write(f"\t+ {addedWord}\n")
             recordFile.write(f"-------------------\n")
             recordFile.write(wordleShareData.replace('\n', '') + "\n\n")
-            
+
+    def ClickShareButton(self, location: tuple) -> None:
+        """
+        Clicks the share button.
+        """
+
+        x, y = location
+        pyautogui.click(x, y)
+
+    def FindShareButton(self) -> tuple:
+        """
+        Finds the share button one the screen then returns the location of the share button.
+        
+        Returns:
+            The location of the share button as a tuple.
+        """
+
+        try:
+            location = pyautogui.locateCenterOnScreen('images/ShareButton.png')
+            if location == None:
+                return (2100, 1350)
+            return location
+        except pyautogui.ImageNotFoundException:
+            return (0, 0)

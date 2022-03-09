@@ -7,9 +7,11 @@ import keyboard
 
 def main():
     agent = Agent()
-    # keyboard.wait('esc')
     gameOver = False
     numberOfAttempts = 6
+    guessedWords = []
+    removedWords = []
+    addedWord = None
 
     # Allows you to run the AI midway trhough a game.
     numberOfAttempts = int(input("How many previous Attempts:\t"))
@@ -37,10 +39,13 @@ def main():
 
         # Checks if the word was invalid
         if colorList.count("black") == 5:
+            removedWords.append(guessWord)
             agent.RemoveWord(guessWord)
             for i in range(5):
                 keyboard.press_and_release('backspace')
             continue
+
+        guessedWords.append(guessWord)
 
         # Checks if an error was raised due to the win screen.
         try:
@@ -66,9 +71,14 @@ def main():
             newWord = str(input("Enter new Word:\t")).lower()
             if len(newWord) == 5:
                 isValid = True
+                addedWord = newWord
                 agent.AddNewWord(newWord)
                 continue
             print("The word you have entered is invalid. Please try again.")
+
+    location = agent.FindShareButton()
+    agent.ClickShareButton(location)
+    agent.RecordData(numberOfAttempts, guessedWords, removedWords, addedWord)
 
 
 if __name__ == "__main__":  

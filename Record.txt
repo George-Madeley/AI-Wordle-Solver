@@ -1,0 +1,21 @@
+=======================================
+Date: 2022-03-09
+
+Number of attempts: 3/6
+Attempt 0: arear
+Attempt 1: youth
+Attempt 2: month
+
+Removed Words:
+	- zzzzz
+	- yyyyy
+
+Added Words:
+	+ aaaaa
+-------------------
+Wordle 263 3/6
+
+⬛⬛⬛⬛⬛
+⬛🟩⬛🟩🟩
+🟩🟩🟩🟩🟩
+

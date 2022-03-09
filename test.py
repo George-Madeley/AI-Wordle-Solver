@@ -119,5 +119,7 @@ def main(RunGame):
 if __name__ == "__main__":  
     # main(RunGame)
     agent = Agent()
+    location = agent.FindShareButton()
+    agent.ClickShareButton(location)
     agent.RecordData(3, ["arear", "youth", "month"])
     pass
