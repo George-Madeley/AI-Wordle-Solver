@@ -1,4 +1,5 @@
 from ast import List
+from datetime import date
 import math
 from typing import TypeAlias
 from KnowledgeBase import KnowledgeBase
@@ -7,6 +8,7 @@ from WordList import WordList
 
 from PIL import Image
 import pyautogui
+import pyperclip
 
 AlphabetInfo: TypeAlias = list[CharacterInfo]
 
@@ -299,3 +301,24 @@ class Agent:
         Returns:
             True if the word was entered in successfully
         """
+
+
+    def RecordData(self, numberOfAttempts: int, guessedWords: list) -> None:
+        """
+        Records how the last game went and appends it to a file.
+        
+        Args:
+            numberOfAttampts: The number of attempts it took the agent to solve the Wordle.
+            guessWords: A list of all the guessed words in order.
+        """
+
+        wordleShareData = pyperclip.paste()
+        with open('Record.txt', 'a', encoding="UTF-8") as recordFile:
+            recordFile.write(f"=======================================\n")
+            recordFile.write(f"Date: {date.today()}\n")
+            recordFile.write(f"Number of attempts: {numberOfAttempts}/6\n")
+            for attempt, word in enumerate(guessedWords):
+                recordFile.write(f"Attempt {attempt}: {word}\n")
+            recordFile.write(f"-------------------\n")
+            recordFile.write(wordleShareData.replace('\n', '') + "\n\n")
+            

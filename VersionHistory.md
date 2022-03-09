@@ -2,6 +2,10 @@
 
 ## Version History
 
+### v1.3.6
+
+- Agent now has a method to record the results of the Wordle game to a text file called Record.txt.
+
 ### v1.3.5
 
 - Added the ability to remove words from the known list.

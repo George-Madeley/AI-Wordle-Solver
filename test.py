@@ -1,8 +1,5 @@
 from Agent import Agent
 
-import pygetwindow
-
-
 def CheckWord(guessedWord: str, GOALWORD: str) -> any:
     """
     Compares given word with the goal word and returns any found
@@ -121,4 +118,6 @@ def main(RunGame):
 
 if __name__ == "__main__":  
     # main(RunGame)
+    agent = Agent()
+    agent.RecordData(3, ["arear", "youth", "month"])
     pass
