@@ -183,7 +183,7 @@ class Agent:
         self.__knowledgeBase.UpdatePossibleWords()
         self.__alphabetOccurances = self.InitialiseAlphabetInfo()
         self.CalculateAlphabetOccurances()
-        print(self.__knowledgeBase.wordList.GetPossibleWordsStr())
+        # print(self.__knowledgeBase.wordList.GetPossibleWordsStr())
         self.__knowledgeBase.UpdateLettersNotInGoal()
         self.__knowledgeBase.UpdateIncorrectLetterPos(self.__alphabetOccurances)
         self.__knowledgeBase.UpdateLettersInGoal()
@@ -325,7 +325,7 @@ class Agent:
         """
 
 
-    def RecordData(self, numberOfAttempts: int, guessedWords: list, removedWords: list, addedWord: str) -> None:
+    def RecordWordleData(self, numberOfAttempts: int, guessedWords: list, removedWords: list, addedWord: str) -> None:
         """
         Records how the last game went and appends it to a file.
         
@@ -335,7 +335,7 @@ class Agent:
         """
 
         wordleShareData = pyperclip.paste()
-        with open('Record.txt', 'a', encoding="UTF-8") as recordFile:
+        with open('WordleRecord.txt', 'a', encoding="UTF-8") as recordFile:
             recordFile.write(f"=======================================\n")
             recordFile.write(f"Date: {date.today()}\n")
             recordFile.write(f"\nNumber of attempts: {numberOfAttempts}/6\n")

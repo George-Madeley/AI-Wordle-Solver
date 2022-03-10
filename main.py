@@ -92,7 +92,7 @@ def main():
 
     location = agent.FindShareButton()
     agent.ClickShareButton(location)
-    agent.RecordData(numberOfAttempts, guessedWords, removedWords, addedWord)
+    agent.RecordWordleData(numberOfAttempts, guessedWords, removedWords, addedWord)
 
 
 if __name__ == "__main__":  

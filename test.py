@@ -1,4 +1,7 @@
+import time
 from Agent import Agent
+
+import os
 
 def CheckWord(guessedWord: str, GOALWORD: str) -> any:
     """
@@ -95,31 +98,42 @@ def RunGame(GOALWORD) -> list:
 
 
 # Test the function of the agent by testing it against all known words.
-def main(RunGame):
-    noDuplicates = []
+def main():
+    numberOfWords = 0
     totalAttempts = 0
-    allWordsFile = open("ListOfWords.txt", "r")
-    for line in allWordsFile:
-        GOALWORD = line.replace('\n', '').lower()
-        if GOALWORD in noDuplicates:
-            continue
-        noDuplicates.append(GOALWORD)
-        if len(GOALWORD) != 5:
-            print("ERROR: " + GOALWORD + " has a length of more than five")
-        else:
-            result, attempts = RunGame(GOALWORD)
-            totalAttempts += attempts
-            if result:
-                print('\033[0;32;40m ' + str(GOALWORD) + "   " + str(attempts) + ' \033[0;0m')
+    lastWordTested = str(input("What was the last tested word:\t"))
+    with open("TestRecord.txt", "a") as testRecordFile, open("ListOfWords.txt", "r") as allWordsFile:
+        allWords = allWordsFile.readlines()
+        try:
+            index = allWords.index(f"{lastWordTested}\n")
+        except ValueError:
+            index = 0
+        numberOfWords = len(allWords)
+        totalTime = 0
+        while index < numberOfWords:
+            line = allWords[index]
+            startTime = time.perf_counter()
+            GOALWORD = line.replace('\n', '').lower()
+            if len(GOALWORD) != 5:
+                print("ERROR: " + GOALWORD + " has a length of more than five")
             else:
-                print('\033[0;31;40m ' + str(GOALWORD) + "   " + str(attempts) + ' \033[0;0m')
-    print("Average Number of Attempts: " + str(totalAttempts / len(noDuplicates)))
-    allWordsFile.close()
-
+                # os.system('cls' if os.name == 'nt' else 'clear')
+                result, attempts = RunGame(GOALWORD)
+                totalAttempts += attempts
+                if result:
+                    testRecordFile.write(f'{str(GOALWORD)}\t{str(attempts)}\n')
+                    print(f"number: {str(index)}, Goal Word: \033[0;32;40m {GOALWORD} \033[0;0m attempts: {str(attempts)}")
+                else:
+                    testRecordFile.write(f'\t\t{str(GOALWORD)}\t{str(attempts)}\n')
+                    print(f"number: {str(index)}, Goal Word: \033[0;31;40m {GOALWORD} \033[0;0m attempts: {str(attempts)}")
+            endTime = time.perf_counter()
+            diffTime = endTime - startTime
+            print(f"Time: {diffTime}\n")
+            totalTime += diffTime
+            index += 1
+                
+        testRecordFile.write(f"Average Number of Attempts:\t{str(totalAttempts / numberOfWords)}\n")
+        testRecordFile.write(f"Total Time Taken:\t{totalTime}, Average Time:\t{totalTime / numberOfWords}\n")
 if __name__ == "__main__":  
-    # main(RunGame)
-    agent = Agent()
-    location = agent.FindShareButton()
-    agent.ClickShareButton(location)
-    agent.RecordData(3, ["arear", "youth", "month"])
+    main()
     pass
