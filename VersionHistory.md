@@ -2,6 +2,18 @@
 
 ## Version History
 
+### v1.4.3
+
+- Created a system which generates the emoji diagram for the record.
+- Created a config system to load data from a config JSON file instead of the values hardcoded in to the program.
+- Replaced Main.py with a Wordle.py for Wordle and WordleUnlimited.py for Wordle Unlimited.
+- Created an automatic data recording system for Wordle Unlimited.
+- Reorganised the project directory.
+
+### v1.4.2
+
+- Imporved test.py to now record tests that passed and failed to text file.
+
 ### v1.4.1
 
 - Added function to Main.py to remove any duplicates from ListOfWords.txt

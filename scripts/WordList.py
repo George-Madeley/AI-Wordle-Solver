@@ -1,7 +1,7 @@
 from typing import TypeAlias
-from CharacterInfo import CharacterInfo
+from scripts.CharacterInfo import CharacterInfo
 from random import randint
-from Node import Node
+from scripts.Node import Node
 
 AlphabetInfo: TypeAlias = list[CharacterInfo]
 
@@ -174,6 +174,8 @@ class WordList:
             node.ResetOccuranceScore()
             for letter in node.GetWord():
                 try:
+                    if node.GetWord().count(letter) > 1:
+                        continue
                     index = alphabet.index(letter)
                     score = alphabetStats[index].GetStatTotal()
                     node.IncreaseOccuranceScoreBy(score)
@@ -189,6 +191,8 @@ class WordList:
         """
 
         for node in self.listOfWords:
+            accountedForLetter = []
+            accountedForPos = [[] for i in range(5)]
             word = node.GetWord()
             node.ResetKnowledgeScore()
             for index, letter in enumerate(word):
@@ -224,7 +228,13 @@ class WordList:
                         # agent does not know all the letters in the goal
                         if knowledgeBase.correctLetterPos.count(None) > 1:
                             # agent knows there is more than one place left
-                            node.IncreaseKnowledgeScoreBy(2)
+                            if letter in accountedForLetter:
+                                # There was a double of this letter
+                                node.IncreaseKnowledgeScoreBy(1)
+                            else:
+                                # There was a single of this letter
+                                accountedForLetter.append(letter)
+                                node.IncreaseKnowledgeScoreBy(2)
                         elif knowledgeBase.correctLetterPos.count(None) == 1:
                             # there is one place left
                             node.IncreaseKnowledgeScoreBy(1)

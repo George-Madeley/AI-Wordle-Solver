@@ -1,5 +1,5 @@
 import time
-from Agent import Agent
+from scripts.Agent import Agent
 
 import os
 

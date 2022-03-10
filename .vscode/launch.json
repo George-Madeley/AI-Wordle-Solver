@@ -5,10 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Unlimited Test",
+            "type": "python",
+            "request": "launch",
+            "program": "WordleUnlimited.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
             "name": "Wordle Test",
             "type": "python",
             "request": "launch",
-            "program": "Main.py",
+            "program": "Wordle.py",
             "console": "integratedTerminal",
             "justMyCode": true
         },

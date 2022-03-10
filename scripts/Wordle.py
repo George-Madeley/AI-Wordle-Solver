@@ -2,7 +2,7 @@ import time
 from turtle import color
 
 from pyparsing import col
-from Agent import Agent
+from scripts.Agent import Agent
 import keyboard
 
 def RemoveDuplicateWords():

@@ -2,18 +2,17 @@ from ast import List
 from datetime import date
 import math
 from typing import TypeAlias
-from KnowledgeBase import KnowledgeBase
-from CharacterInfo import CharacterInfo
-from WordList import WordList
+
+from numpy import number
+from scripts.KnowledgeBase import KnowledgeBase
+from scripts.CharacterInfo import CharacterInfo
+from scripts.WordList import WordList
 
 from PIL import Image
 import pyautogui
 import pyperclip
 
 AlphabetInfo: TypeAlias = list[CharacterInfo]
-
-WORDLEPOS = {"x": 1676, "y": 711}
-WORDLESIZE = {"x": 495, "y": 599}
 
 class Agent:
     """
@@ -24,11 +23,12 @@ class Agent:
         alphabetOccurances: An array of CharacterInfo objects for each letter in the alphabet.
     """
     
-    def __init__(self) -> None:
+    def __init__(self, config: dict) -> None:
         """
         Initialises the Agent class instance.
         """
 
+        self.__config = config
         self.__alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
         self.__knowledgeBase = KnowledgeBase()
         self.__knowledgeBase.wordList = self.ReadAllWords()
@@ -112,6 +112,19 @@ class Agent:
                 return self.GetBestOccuranceWord()
             else:
                 return bestNode.GetWord()
+
+    def GetWordAtIndex(self, index: int) -> str:
+        """
+        Gets a word from the list of all words at the index.
+        
+        Args:
+            index: The index to get the word at.
+            
+        Returns:
+            The word.
+        """
+
+        return self.__knowledgeBase.wordList.listOfWords[index].GetWord()
 
     def GetBestOccuranceWord(self) -> str:
         """
@@ -249,7 +262,11 @@ class Agent:
         with Image.open(filePath) as screenshot:
             # Wordle box (on my PC) is 500x600 at 1671, 744
             # left, upper, right, lower bounds
-            cropBoxSize = (WORDLEPOS["x"], WORDLEPOS["y"], WORDLEPOS["x"] + WORDLESIZE["x"], WORDLEPOS["y"] + WORDLESIZE["y"])
+            upperX = int(self.__config["pos"]["x"])
+            upperY = int(self.__config["pos"]["y"])
+            lowerX = upperX + int(self.__config["size"]["x"])
+            lowerY = upperY + int(self.__config["size"]["y"])
+            cropBoxSize = (upperX, upperY, lowerX, lowerY)
             wordleImage = screenshot.crop(box=cropBoxSize)
             # wordleImage.show()
 
@@ -268,14 +285,16 @@ class Agent:
             2D-list of Images.
         """
         dividedImage = []
-        imageWidth = math.floor(WORDLESIZE["x"] / 5) + 3
-        imageHeight = math.floor(WORDLESIZE["y"] / 6) + 5
-        colorBoxSize = 20
+        boxX = math.floor(int(self.__config["size"]["x"]) / 5) + int(self.__config["gap"]["x"])
+        boxY = math.floor(int(self.__config["size"]["y"]) / 6) + int(self.__config["gap"]["x"])
+        colorBoxSize = int(self.__config["box"]["x"])
+        perimeterX = int(self.__config["perimeter"]["x"])
+        perimeterY = int(self.__config["perimeter"]["y"])
         for y in range(6):
             dividedRow = []
             for x in range(5):
                     # left, upper, right, lower bounds
-                tempBoxSize = (x * imageWidth, y * imageHeight, x * imageWidth + colorBoxSize, y * imageWidth + colorBoxSize)
+                tempBoxSize = (x * boxX + perimeterX, y * boxY + perimeterY, (x * boxX) + colorBoxSize, (y * boxX) + colorBoxSize)
                 tempImage = wordleImage.crop(box=tempBoxSize)
                 # tempImage.show()
                 dividedRow.append(tempImage)
@@ -302,8 +321,11 @@ class Agent:
             
             # print(finalColor)
 
-            margin = 10
-            colorDict = {"grey": (58, 58, 60), "yellow": (181, 159, 59), "green": (83, 141, 78), "black": (18, 18, 19)}
+            margin = int(self.__config["margin"])
+            
+            colorConfig = self.__config["colors"]
+            colorDict = {colorName: [int(color) for color in colorConfig[colorName].values()] for colorName in colorConfig.keys()}
+            # colorDict = {"grey": (58, 58, 60), "yellow": (181, 159, 59), "green": (83, 141, 78), "black": (18, 18, 19)}
             for color, colorCode in colorDict.items():
                 if ((colorCode[0] - margin) < finalColor[0] and (colorCode[0] + margin) > finalColor[0] and
                     (colorCode[1] - margin) < finalColor[1] and (colorCode[1] + margin) > finalColor[1] and
@@ -313,29 +335,38 @@ class Agent:
         except ZeroDivisionError:
             return "green"
 
-    def EnterGuessWord(self, word: str) -> bool:
-        """
-        Enters in the word to Wordle.
-        
-        Args:
-            word: The word to enter.
-            
-        Returns:
-            True if the word was entered in successfully
-        """
-
-
-    def RecordWordleData(self, numberOfAttempts: int, guessedWords: list, removedWords: list, addedWord: str) -> None:
+    def RecordWordleData(self, fileName: str, numberOfAttempts: int, guessedWords: list, removedWords: list, addedWord: str, allColors: list, wordleConfig: dict) -> None:
         """
         Records how the last game went and appends it to a file.
         
         Args:
+            fileName: The anme of the record file.
             numberOfAttampts: The number of attempts it took the agent to solve the Wordle.
             guessWords: A list of all the guessed words in order.
+            removedWords: A lits of all removed words.
+            addedWord: The added word.
+            allColors: The colors of the previous attempts.
+            wordleConfig: The data from the config file.
         """
 
-        wordleShareData = pyperclip.paste()
-        with open('WordleRecord.txt', 'a', encoding="UTF-8") as recordFile:
+        # Generates its own emojis if required
+        if bool(wordleConfig["makeemojis"]):
+            wordleShareData = f"Wordle {numberOfAttempts}/6\r\r"
+            for row in allColors:
+                for color in row:
+                    if color == "grey":
+                        wordleShareData += "⬛"
+                    elif color == "yellow":
+                        wordleShareData += "🟨"
+                    elif color == "green":
+                        wordleShareData += "🟩"
+                wordleShareData += "\r"
+            wordleShareData += "\r"
+        else:
+            wordleShareData = pyperclip.paste()
+
+        # Appends to the record file.
+        with open(fileName, 'a', encoding="UTF-8") as recordFile:
             recordFile.write(f"=======================================\n")
             recordFile.write(f"Date: {date.today()}\n")
             recordFile.write(f"\nNumber of attempts: {numberOfAttempts}/6\n")
@@ -367,10 +398,4 @@ class Agent:
             The location of the share button as a tuple.
         """
 
-        try:
-            location = pyautogui.locateCenterOnScreen('images/ShareButton.png')
-            if location == None:
-                return (2100, 1350)
-            return location
-        except pyautogui.ImageNotFoundException:
-            return (0, 0)
+        return (int(self.__config["share"]["x"]), int(self.__config["share"]["y"]))

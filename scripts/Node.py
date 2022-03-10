@@ -1,4 +1,4 @@
-from CharacterInfo import CharacterInfo
+from scripts.CharacterInfo import CharacterInfo
 
 class Node:
     """
