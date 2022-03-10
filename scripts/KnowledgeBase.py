@@ -1,5 +1,5 @@
 from typing import TypeAlias
-from scripts.CharacterInfo import CharacterInfo
+from CharacterInfo import CharacterInfo
 
 AlphabetInfo: TypeAlias = list[CharacterInfo]
 

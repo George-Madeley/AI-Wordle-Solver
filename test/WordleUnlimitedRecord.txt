@@ -1,0 +1,2145 @@
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: fonds
+Attempt 3: crumb
+Attempt 4: coils
+-------------------
+Wordle 4/6
+
+⬛⬛🟩🟨⬛
+⬛🟨🟨⬛⬛
+⬛🟩⬛⬛🟩
+🟩⬛⬛⬛⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: cough
+Attempt 4: tough
+-------------------
+Wordle 4/6
+
+⬛⬛⬛⬛⬛
+⬛⬛🟨🟨⬛
+⬛🟨🟩⬛⬛
+⬛🟩🟩🟩🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 3/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: unfed
+Attempt 3: doula
+
+Removed Words:
+	- aloud
+-------------------
+Wordle 3/6
+
+🟩⬛⬛⬛⬛
+⬛🟩🟩⬛⬛
+🟨⬛⬛⬛🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: arise
+Attempt 1: yupon
+Attempt 2: welch
+Attempt 3: blets
+Attempt 4: bless
+-------------------
+Wordle 4/6
+
+⬛⬛⬛🟩🟨
+⬛⬛⬛⬛⬛
+⬛🟨🟨⬛⬛
+🟩🟩🟩⬛🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 5/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: wrung
+Attempt 3: scuff
+Attempt 4: brown
+Attempt 5: blown
+-------------------
+Wordle 5/6
+
+⬛⬛⬛⬛⬛
+⬛🟩🟩⬛⬛
+🟨⬛⬛🟨⬛
+⬛⬛⬛⬛⬛
+🟩⬛🟩🟩🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: vexed
+Attempt 4: overt
+-------------------
+Wordle 4/6
+
+⬛🟨⬛⬛🟨
+⬛⬛🟨🟨⬛
+⬛⬛⬛⬛⬛
+🟨🟨⬛⬛⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 5/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: scend
+Attempt 4: yirds
+Attempt 5: sheds
+
+Removed Words:
+	- zendo
+	- zaidy
+	- zaida
+-------------------
+Wordle 5/6
+
+⬛⬛⬛🟨🟨
+⬛⬛⬛⬛⬛
+⬛🟩⬛⬛⬛
+🟩⬛🟩⬛🟨
+⬛⬛⬛🟩🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 6/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: xebec
+Attempt 4: kings
+Attempt 5: nocks
+-------------------
+Wordle 6/6
+
+⬛⬛⬛🟨🟨
+⬛⬛⬛⬛⬛
+⬛⬛⬛⬛⬛
+⬛🟩⬛⬛🟨
+🟨⬛🟨⬛🟩
+🟩⬛🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: kench
+Attempt 3: howes
+Attempt 4: honey
+-------------------
+Wordle 4/6
+
+⬛⬛⬛⬛🟨
+⬛⬛🟨⬛🟩
+⬛🟨🟩⬛🟨
+🟩🟩⬛🟩⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: punch
+Attempt 3: mound
+Attempt 4: round
+-------------------
+Wordle 4/6
+
+⬛🟨⬛⬛⬛
+⬛⬛🟨⬛⬛
+⬛🟨🟨⬛⬛
+⬛🟩🟩🟩🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 5/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: vegan
+Attempt 4: loyal
+Attempt 5: legal
+-------------------
+Wordle 5/6
+
+🟨⬛⬛⬛🟨
+⬛🟨⬛⬛⬛
+⬛⬛⬛⬛⬛
+⬛🟩🟩🟩⬛
+🟩⬛⬛🟩🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: caned
+Attempt 4: medal
+
+Removed Words:
+	- decan
+-------------------
+Wordle 4/6
+
+🟨⬛⬛⬛🟨
+⬛🟨⬛⬛⬛
+⬛⬛⬛🟨⬛
+⬛🟨⬛🟨🟨
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 6/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: vangs
+Attempt 4: black
+Attempt 5: scurf
+-------------------
+Wordle 6/6
+
+🟨🟨⬛🟨⬛
+⬛⬛⬛⬛⬛
+⬛⬛⬛⬛⬛
+⬛🟨⬛⬛🟩
+⬛⬛🟩🟨⬛
+🟩🟩⬛🟩⬛
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 5/6
+Attempt 0: arise
+Attempt 1: towel
+Attempt 2: pudic
+Attempt 3: befog
+Attempt 4: gruff
+Attempt 5: grief
+-------------------
+Wordle 5/6
+
+⬛🟩🟩⬛🟨
+⬛⬛⬛🟩⬛
+⬛⬛⬛🟨⬛
+⬛🟨🟨⬛🟨
+🟩🟩⬛⬛🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: baffy
+Attempt 3: froth
+Attempt 4: faith
+
+Removed Words:
+	- furth
+-------------------
+Wordle 4/6
+
+🟨⬛🟩⬛⬛
+⬛⬛⬛🟩⬛
+⬛🟩🟨⬛⬛
+🟩⬛⬛🟩🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 5/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: punch
+Attempt 3: gambs
+Attempt 4: zills
+Attempt 5: bulbs
+-------------------
+Wordle 5/6
+
+⬛⬛⬛🟨⬛
+⬛🟨⬛⬛⬛
+⬛🟩⬛⬛⬛
+⬛⬛⬛🟩🟩
+⬛⬛🟩⬛🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 3/6
+Attempt 0: arise
+Attempt 1: wound
+Attempt 2: vitta
+Attempt 3: drove
+
+Removed Words:
+	- vivat
+-------------------
+Wordle 3/6
+
+⬛🟩⬛⬛🟩
+⬛🟨⬛⬛🟨
+🟨⬛⬛⬛⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 5/6
+Attempt 0: arise
+Attempt 1: yupon
+Attempt 2: stock
+Attempt 3: oddly
+Attempt 4: slype
+Attempt 5: slope
+-------------------
+Wordle 5/6
+
+⬛⬛⬛🟨🟩
+⬛⬛🟨🟨⬛
+🟩⬛🟩⬛⬛
+🟨⬛⬛🟨⬛
+🟩🟩⬛🟩🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 3/6
+Attempt 0: arise
+Attempt 1: wound
+Attempt 2: milch
+Attempt 3: attic
+-------------------
+Wordle 3/6
+
+🟩⬛🟨⬛⬛
+⬛⬛⬛⬛⬛
+⬛🟨⬛🟨⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 5/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: xebec
+Attempt 4: dured
+Attempt 5: cured
+-------------------
+Wordle 5/6
+
+⬛🟨⬛⬛🟨
+⬛⬛⬛⬛⬛
+⬛⬛🟨⬛⬛
+⬛⬛⬛🟩🟨
+⬛🟩🟩🟩🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: pudic
+Attempt 3: churr
+Attempt 4: choir
+-------------------
+Wordle 4/6
+
+⬛🟨🟨⬛⬛
+⬛⬛🟩⬛⬛
+⬛⬛⬛🟩🟨
+🟩🟩⬛⬛🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 5/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: bangs
+Attempt 4: hutch
+Attempt 5: hatch
+-------------------
+Wordle 5/6
+
+🟨⬛⬛⬛⬛
+⬛⬛⬛🟨⬛
+⬛🟨⬛⬛⬛
+⬛🟩⬛⬛⬛
+🟩⬛🟩🟩🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 3/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: knock
+-------------------
+Wordle 3/6
+
+⬛⬛⬛⬛⬛
+⬛⬛🟩⬛⬛
+⬛⬛⬛⬛⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 3/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: punch
+Attempt 3: teddy
+-------------------
+Wordle 3/6
+
+⬛⬛⬛⬛🟨
+⬛⬛⬛🟨🟩
+⬛⬛⬛⬛⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: arise
+Attempt 1: yupon
+Attempt 2: wefts
+Attempt 3: trapt
+Attempt 4: traps
+-------------------
+Wordle 4/6
+
+🟨🟩⬛🟨⬛
+⬛⬛🟨⬛⬛
+⬛⬛⬛🟨🟩
+🟩🟩🟩🟩⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: nocks
+Attempt 4: block
+
+Removed Words:
+	- locks
+-------------------
+Wordle 4/6
+
+⬛⬛⬛🟨⬛
+⬛🟨🟨⬛⬛
+⬛⬛⬛⬛⬛
+⬛🟩🟩🟩🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 3/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: nonce
+Attempt 3: monte
+
+Removed Words:
+	- monic
+-------------------
+Wordle 3/6
+
+⬛⬛⬛⬛🟩
+⬛⬛🟨🟩⬛
+⬛🟩🟩⬛🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: scuds
+Attempt 4: zonal
+
+Removed Words:
+	- usual
+-------------------
+Wordle 4/6
+
+🟨⬛⬛🟨⬛
+⬛🟨⬛⬛⬛
+⬛⬛🟩⬛⬛
+🟨⬛🟩⬛⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 6/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: vinic
+Attempt 4: skiff
+Attempt 5: zingy
+-------------------
+Wordle 6/6
+
+⬛⬛🟨🟨⬛
+⬛⬛⬛⬛⬛
+⬛⬛⬛⬛⬛
+⬛🟩🟩⬛⬛
+🟩⬛🟨⬛⬛
+⬛🟩🟩🟩⬛
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: arise
+Attempt 1: whomp
+Attempt 2: talks
+Attempt 3: synth
+Attempt 4: saith
+-------------------
+Wordle 4/6
+
+🟨⬛🟩🟨⬛
+⬛🟨⬛⬛⬛
+🟨🟩⬛⬛🟨
+🟩⬛⬛🟩🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 5/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: myths
+Attempt 4: zills
+Attempt 5: zaire
+
+Removed Words:
+	- winch
+-------------------
+Wordle 5/6
+
+⬛⬛⬛🟨⬛
+⬛⬛🟩🟩⬛
+⬛⬛⬛🟨⬛
+⬛⬛⬛⬛⬛
+⬛⬛🟨⬛🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 3/6
+Attempt 0: arise
+Attempt 1: wound
+Attempt 2: knelt
+Attempt 3: ankle
+-------------------
+Wordle 3/6
+
+🟩⬛⬛⬛🟩
+⬛⬛⬛🟨⬛
+🟨🟩🟨🟩⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 5/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: unwed
+Attempt 3: micks
+Attempt 4: gabby
+Attempt 5: zetas
+
+Removed Words:
+	- zitis
+-------------------
+Wordle 5/6
+
+⬛⬛🟨🟨🟨
+⬛⬛⬛🟨⬛
+⬛⬛⬛🟩⬛
+⬛🟩⬛⬛🟩
+⬛⬛⬛⬛⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 3/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: undos
+
+Removed Words:
+	- dunno
+-------------------
+Wordle 3/6
+
+⬛⬛🟩⬛⬛
+⬛⬛🟨⬛⬛
+⬛⬛⬛🟨⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 3/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: undos
+-------------------
+Wordle 3/6
+
+⬛⬛🟩⬛⬛
+⬛⬛🟨⬛⬛
+⬛⬛⬛🟨⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 3/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: undos
+-------------------
+Wordle 3/6
+
+⬛⬛🟩⬛⬛
+⬛⬛🟨⬛⬛
+⬛⬛⬛🟨⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 3/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: undos
+-------------------
+Wordle 3/6
+
+⬛⬛🟩⬛⬛
+⬛⬛🟨⬛⬛
+⬛⬛⬛🟨⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 5/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: undid
+Attempt 4: imido
+Attempt 5: idiom
+
+Removed Words:
+	- undos
+-------------------
+Wordle 5/6
+
+⬛⬛🟩⬛⬛
+⬛⬛🟨⬛⬛
+⬛⬛⬛🟨⬛
+⬛⬛🟨🟨⬛
+🟩🟨🟩🟨🟨
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: pudic
+Attempt 3: zonal
+Attempt 4: iliac
+-------------------
+Wordle 4/6
+
+🟨⬛🟩⬛⬛
+⬛🟩⬛⬛⬛
+⬛⬛⬛🟨🟩
+⬛⬛⬛🟩🟨
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 3/6
+Attempt 0: arise
+Attempt 1: chapt
+Attempt 2: grump
+Attempt 3: sprag
+
+Removed Words:
+	- grasp
+-------------------
+Wordle 3/6
+
+🟨🟩⬛🟩⬛
+⬛⬛🟩🟨⬛
+🟩🟩⬛⬛🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: vends
+Attempt 4: spend
+-------------------
+Wordle 4/6
+
+⬛⬛⬛🟨🟨
+⬛⬛⬛⬛⬛
+⬛⬛⬛⬛🟨
+⬛🟨🟨🟨🟨
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 6/6
+Attempt 0: arise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: vinic
+Attempt 4: skiff
+Attempt 5: judge
+-------------------
+Wordle 6/6
+
+⬛⬛🟨🟨⬛
+⬛⬛⬛⬛⬛
+⬛⬛⬛⬛⬛
+⬛🟩🟩⬛⬛
+🟨🟨🟨⬛⬛
+⬛⬛🟨⬛⬛
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 3/6
+Attempt 0: arise
+Attempt 1: yupon
+Attempt 2: which
+Attempt 3: sworn
+-------------------
+Wordle 3/6
+
+⬛🟨⬛🟨⬛
+⬛⬛⬛🟨🟩
+🟨⬛⬛⬛⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 5/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: zizit
+Attempt 3: zizit
+Attempt 4: zetas
+Attempt 5: zetas
+
+Removed Words:
+	- arise
+-------------------
+Wordle 5/6
+
+
+⬛⬛🟨⬛🟨
+⬛⬛🟨⬛🟨
+⬛⬛⬛⬛⬛
+⬛🟩⬛⬛⬛
+⬛🟩⬛⬛⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 5/6
+Attempt 0: raise
+Attempt 1: yupon
+Attempt 2: witch
+Attempt 3: pumps
+Attempt 4: wushu
+Attempt 5: aphis
+
+Removed Words:
+	- pasha
+-------------------
+Wordle 5/6
+
+⬛🟩⬛🟨⬛
+⬛⬛🟨⬛⬛
+⬛⬛⬛⬛🟨
+🟩⬛⬛⬛🟨
+⬛⬛🟩🟩⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 3/6
+Attempt 0: raise
+Attempt 1: yupon
+Attempt 2: wetly
+Attempt 3: reply
+-------------------
+Wordle 3/6
+
+🟩⬛⬛⬛🟨
+🟨⬛🟩⬛⬛
+⬛🟩⬛🟩🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 5/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: punch
+Attempt 3: hydro
+Attempt 4: yirds
+Attempt 5: hardy
+-------------------
+Wordle 5/6
+
+🟨🟩⬛⬛⬛
+⬛⬛⬛⬛🟩
+⬛⬛⬛⬛🟨
+🟩🟨🟨🟨⬛
+🟨⬛🟩🟩⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 6/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: vexed
+Attempt 4: futon
+Attempt 5: tuner
+-------------------
+Wordle 6/6
+
+🟨⬛⬛⬛🟨
+⬛⬛🟨🟨⬛
+⬛⬛⬛⬛⬛
+⬛🟩⬛⬛⬛
+⬛⬛🟨🟩🟨
+🟩⬛🟩🟨🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 5/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: wench
+Attempt 3: piked
+Attempt 4: bumfs
+Attempt 5: fines
+-------------------
+Wordle 5/6
+
+⬛⬛🟨🟨🟨
+⬛⬛⬛⬛⬛
+⬛🟨🟩⬛⬛
+⬛🟩⬛🟩⬛
+⬛⬛⬛🟨🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 3/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: perch
+-------------------
+Wordle 3/6
+
+🟨⬛⬛⬛🟨
+⬛⬛⬛⬛⬛
+⬛🟨⬛⬛🟨
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 5/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: menad
+Attempt 4: yodel
+Attempt 5: medal
+-------------------
+Wordle 5/6
+
+⬛🟨⬛⬛🟨
+⬛🟨⬛⬛⬛
+⬛⬛⬛🟨⬛
+🟩🟩⬛🟩🟨
+⬛⬛🟩🟨🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: raise
+Attempt 1: towel
+Attempt 2: pudic
+Attempt 3: gruff
+Attempt 4: brief
+-------------------
+Wordle 4/6
+
+🟨⬛🟩⬛🟨
+⬛⬛⬛🟩⬛
+⬛⬛⬛🟨⬛
+⬛🟩⬛⬛🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 3/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: punch
+Attempt 3: donor
+-------------------
+Wordle 3/6
+
+🟨⬛⬛⬛⬛
+⬛⬛🟨⬛⬛
+⬛⬛🟩⬛⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 5/6
+Attempt 0: raise
+Attempt 1: towel
+Attempt 2: pudic
+Attempt 3: draff
+Attempt 4: fuzed
+Attempt 5: fried
+-------------------
+Wordle 5/6
+
+🟨⬛🟩⬛🟨
+⬛⬛⬛🟩⬛
+⬛⬛🟨🟨⬛
+🟨🟩⬛🟨⬛
+🟩⬛⬛🟩🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 3/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: peter
+
+Removed Words:
+	- meter
+-------------------
+Wordle 3/6
+
+🟨⬛⬛⬛🟨
+⬛⬛⬛🟨⬛
+⬛⬛⬛🟨⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 6/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: sepal
+Attempt 4: peals
+Attempt 5: lymph
+-------------------
+Wordle 6/6
+
+⬛🟨⬛🟨🟨
+⬛🟨⬛⬛⬛
+⬛⬛⬛⬛🟨
+🟨🟩🟨🟨🟨
+🟨🟩🟩🟨🟩
+🟩⬛⬛🟩⬛
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 5/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: kneed
+Attempt 4: augur
+Attempt 5: anger
+-------------------
+Wordle 5/6
+
+🟨🟨⬛⬛🟨
+⬛⬛⬛⬛⬛
+⬛⬛⬛⬛⬛
+⬛🟩⬛🟩⬛
+🟩⬛🟩⬛🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 5/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: umped
+Attempt 3: jugal
+Attempt 4: crust
+Attempt 5: cruel
+-------------------
+Wordle 5/6
+
+🟨⬛⬛⬛🟨
+⬛🟨⬛⬛⬛
+🟨⬛⬛🟩⬛
+⬛🟨⬛⬛🟩
+🟩🟩🟩⬛⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: fichu
+Attempt 3: zilch
+Attempt 4: filth
+-------------------
+Wordle 4/6
+
+⬛⬛🟨⬛⬛
+⬛🟨⬛🟩⬛
+🟩🟩⬛🟨⬛
+⬛🟩🟩⬛🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 5/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: unman
+Attempt 4: huzza
+Attempt 5: human
+-------------------
+Wordle 5/6
+
+⬛🟨⬛⬛⬛
+⬛⬛⬛⬛⬛
+⬛🟨🟨🟨⬛
+🟨⬛🟩🟩🟩
+🟩🟩⬛⬛🟨
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: raise
+Attempt 1: veldt
+Attempt 2: klong
+Attempt 3: azuki
+Attempt 4: alike
+-------------------
+Wordle 4/6
+
+⬛🟨🟩⬛🟩
+⬛🟨🟨⬛⬛
+🟨🟩⬛⬛⬛
+🟩⬛⬛🟩🟨
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: xebec
+Attempt 4: taxed
+-------------------
+Wordle 4/6
+
+⬛🟩⬛⬛🟨
+⬛⬛⬛🟨⬛
+⬛⬛⬛⬛⬛
+🟨⬛⬛🟩⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 5/6
+Attempt 0: raise
+Attempt 1: wound
+Attempt 2: kempt
+Attempt 3: orgic
+Attempt 4: culms
+Attempt 5: crime
+-------------------
+Wordle 5/6
+
+🟨⬛🟩⬛🟩
+⬛⬛⬛⬛⬛
+⬛🟨🟨⬛⬛
+⬛🟩⬛🟨🟨
+🟩⬛⬛🟩⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 5/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: xebec
+Attempt 4: bulls
+Attempt 5: bells
+-------------------
+Wordle 5/6
+
+⬛⬛⬛🟨🟨
+⬛🟨⬛⬛⬛
+⬛⬛⬛⬛⬛
+⬛🟩🟨⬛⬛
+🟩⬛🟩🟩🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 3/6
+Attempt 0: raise
+Attempt 1: witch
+Attempt 2: zests
+Attempt 3: waist
+
+Removed Words:
+	- waits
+-------------------
+Wordle 3/6
+
+⬛🟩🟩🟨⬛
+🟩🟨🟨⬛⬛
+⬛⬛⬛🟩🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 3/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: chord
+-------------------
+Wordle 3/6
+
+🟨⬛⬛⬛⬛
+⬛⬛🟩⬛⬛
+⬛🟩⬛⬛⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: snack
+Attempt 4: shark
+-------------------
+Wordle 4/6
+
+🟨🟨⬛🟨⬛
+⬛⬛⬛⬛⬛
+⬛🟩⬛⬛⬛
+🟩⬛🟩⬛🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: raise
+Attempt 1: whump
+Attempt 2: vinyl
+Attempt 3: swung
+Attempt 4: swine
+
+Removed Words:
+	- vulns
+-------------------
+Wordle 4/6
+
+⬛⬛🟩🟨🟩
+🟨⬛⬛⬛⬛
+⬛🟨🟨⬛⬛
+🟩🟩⬛🟩⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 3/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: among
+-------------------
+Wordle 3/6
+
+⬛🟨⬛⬛⬛
+⬛⬛🟩⬛⬛
+⬛⬛⬛🟨⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: punch
+Attempt 3: choky
+Attempt 4: choke
+-------------------
+Wordle 4/6
+
+⬛⬛⬛⬛🟩
+⬛⬛🟩⬛⬛
+⬛⬛⬛🟨🟨
+🟩🟩🟩🟩⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: vined
+Attempt 4: widen
+-------------------
+Wordle 4/6
+
+⬛⬛🟨⬛🟨
+⬛⬛⬛⬛⬛
+🟩⬛⬛⬛⬛
+⬛🟩🟨🟩🟨
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 6/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: xebec
+Attempt 4: vends
+Attempt 5: nymph
+-------------------
+Wordle 6/6
+
+⬛⬛⬛🟨🟨
+⬛⬛⬛⬛⬛
+⬛⬛⬛⬛⬛
+⬛🟩⬛🟨⬛
+⬛🟩🟨🟩🟩
+🟩⬛⬛⬛⬛
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 5/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: fonds
+Attempt 4: nurse
+Attempt 5: norms
+-------------------
+Wordle 5/6
+
+🟨⬛⬛🟨⬛
+⬛⬛🟨⬛⬛
+⬛⬛⬛🟩⬛
+⬛🟩🟨⬛🟩
+🟩⬛🟩🟨⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: vogue
+Attempt 4: vague
+-------------------
+Wordle 4/6
+
+⬛🟩⬛⬛🟩
+⬛⬛⬛⬛⬛
+⬛⬛🟨⬛⬛
+🟩⬛🟩🟩🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: uncap
+Attempt 3: yugas
+Attempt 4: algae
+-------------------
+Wordle 4/6
+
+⬛🟨⬛⬛🟩
+⬛🟩⬛⬛⬛
+⬛⬛⬛🟩⬛
+⬛⬛🟩🟩⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 3/6
+Attempt 0: raise
+Attempt 1: thrum
+Attempt 2: myrrh
+Attempt 3: marsh
+-------------------
+Wordle 3/6
+
+🟨🟩⬛🟩⬛
+⬛🟨🟩⬛🟨
+🟩⬛🟩⬛🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 5/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: punch
+Attempt 3: gyved
+Attempt 4: sigla
+Attempt 5: eagle
+-------------------
+Wordle 5/6
+
+⬛🟩⬛⬛🟩
+⬛🟨⬛⬛⬛
+⬛⬛⬛⬛⬛
+🟨⬛⬛🟨⬛
+⬛⬛🟩🟩🟨
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 6/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: xebec
+Attempt 4: kinds
+Attempt 5: byway
+-------------------
+Wordle 6/6
+
+⬛🟩⬛🟨🟨
+⬛⬛⬛⬛⬛
+⬛⬛⬛⬛⬛
+⬛⬛🟨🟩⬛
+⬛⬛⬛⬛🟩
+🟩⬛⬛🟨⬛
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: nocks
+Attempt 4: nouns
+-------------------
+Wordle 4/6
+
+⬛⬛⬛🟨⬛
+⬛⬛🟨⬛⬛
+⬛⬛🟩⬛⬛
+🟩🟩⬛⬛🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: unbid
+Attempt 4: manly
+-------------------
+Wordle 4/6
+
+⬛🟩⬛⬛⬛
+⬛🟨⬛⬛🟩
+⬛⬛⬛🟨⬛
+⬛🟨⬛⬛⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 3/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: tubed
+Attempt 3: adult
+-------------------
+Wordle 3/6
+
+⬛🟨⬛⬛⬛
+⬛🟨⬛🟨⬛
+🟨🟨⬛⬛🟨
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 3/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: graph
+-------------------
+Wordle 3/6
+
+🟨🟨⬛⬛⬛
+⬛⬛⬛⬛⬛
+⬛🟨⬛⬛🟨
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 6/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: yores
+Attempt 4: yomim
+Attempt 5: yomim
+-------------------
+Wordle 6/6
+
+⬛🟨⬛🟨⬛
+⬛🟨⬛⬛⬛
+⬛⬛🟩⬛⬛
+⬛⬛⬛⬛🟨
+⬛⬛⬛⬛⬛
+⬛⬛⬛⬛⬛
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: knead
+Attempt 4: ahead
+-------------------
+Wordle 4/6
+
+⬛🟨⬛⬛🟨
+⬛⬛⬛⬛⬛
+⬛🟩⬛⬛⬛
+⬛⬛🟩🟩🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 5/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: keefs
+Attempt 4: spill
+Attempt 5: helps
+
+Removed Words:
+	- spell
+-------------------
+Wordle 5/6
+
+⬛⬛⬛🟨🟨
+⬛🟨⬛⬛⬛
+⬛⬛⬛⬛🟨
+⬛⬛🟩⬛🟨
+🟩🟩⬛🟩🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: avert
+Attempt 3: water
+Attempt 4: alter
+-------------------
+Wordle 4/6
+
+🟨🟨⬛⬛🟨
+⬛🟩⬛🟨⬛
+🟩⬛🟨🟨🟨
+⬛🟨🟩🟩🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: dorks
+Attempt 4: words
+-------------------
+Wordle 4/6
+
+🟨⬛⬛🟨⬛
+⬛⬛🟨⬛⬛
+🟩⬛⬛⬛⬛
+🟨🟩🟩⬛🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 6/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: unwed
+Attempt 3: micks
+Attempt 4: gabby
+Attempt 5: bytes
+-------------------
+Wordle 6/6
+
+⬛⬛🟨🟨🟨
+⬛⬛⬛🟨⬛
+⬛⬛⬛🟩⬛
+⬛🟩⬛⬛🟩
+⬛⬛🟨⬛⬛
+🟩⬛🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 6/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: xebec
+Attempt 4: klong
+Attempt 5: igged
+-------------------
+Wordle 6/6
+
+⬛⬛⬛⬛🟨
+⬛⬛⬛⬛⬛
+⬛⬛⬛⬛⬛
+⬛🟨⬛🟩⬛
+⬛⬛⬛⬛🟨
+⬛⬛🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 5/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: beaux
+Attempt 4: syphs
+Attempt 5: seams
+-------------------
+Wordle 5/6
+
+⬛🟨⬛🟨🟨
+⬛⬛⬛⬛⬛
+⬛⬛⬛🟩⬛
+⬛🟩🟩⬛⬛
+🟩⬛⬛⬛🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 6/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: speck
+Attempt 4: props
+Attempt 5: zebra
+-------------------
+Wordle 6/6
+
+🟨⬛⬛🟨🟨
+⬛⬛⬛⬛⬛
+⬛⬛⬛⬛🟨
+🟨🟨🟩⬛⬛
+🟩🟨⬛⬛🟩
+⬛🟩⬛🟩⬛
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: pubic
+Attempt 3: butch
+Attempt 4: booth
+
+Removed Words:
+	- butoh
+-------------------
+Wordle 4/6
+
+⬛⬛⬛⬛⬛
+⬛⬛🟩🟩⬛
+⬛⬛🟨⬛⬛
+🟩⬛🟨⬛🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: nocks
+Attempt 4: bonus
+-------------------
+Wordle 4/6
+
+⬛⬛⬛🟨⬛
+⬛⬛🟨⬛⬛
+⬛⬛🟨⬛⬛
+🟨🟩⬛⬛🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: mucks
+Attempt 4: marks
+-------------------
+Wordle 4/6
+
+🟨🟩⬛🟨⬛
+⬛⬛⬛⬛⬛
+⬛⬛⬛🟨⬛
+🟩⬛⬛🟩🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 3/6
+Attempt 0: raise
+Attempt 1: thump
+Attempt 2: abyss
+Attempt 3: abuse
+
+Removed Words:
+	- umpty
+-------------------
+Wordle 3/6
+
+⬛🟨⬛🟩🟩
+⬛⬛🟩⬛⬛
+🟩🟩⬛🟩⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: raise
+Attempt 1: plant
+Attempt 2: medic
+Attempt 3: aiver
+Attempt 4: aided
+
+Removed Words:
+	- aiyee
+-------------------
+Wordle 4/6
+
+⬛🟨🟨⬛🟨
+⬛⬛🟨⬛⬛
+⬛🟨🟩🟨⬛
+🟩🟩⬛🟩⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: punch
+Attempt 3: velum
+Attempt 4: value
+-------------------
+Wordle 4/6
+
+⬛🟩⬛⬛🟩
+⬛🟨⬛⬛⬛
+⬛🟨⬛⬛⬛
+🟩🟨🟩🟩⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 5/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: knock
+Attempt 3: vuggy
+Attempt 4: guava
+Attempt 5: glove
+-------------------
+Wordle 5/6
+
+⬛⬛⬛⬛🟩
+⬛🟩🟩⬛⬛
+⬛⬛🟩⬛⬛
+🟨⬛🟨⬛⬛
+🟩⬛⬛🟩⬛
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 6/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: vinic
+Attempt 4: skiff
+Attempt 5: judge
+-------------------
+Wordle 6/6
+
+⬛⬛🟨🟨⬛
+⬛⬛⬛⬛⬛
+⬛⬛⬛⬛⬛
+⬛🟩🟩⬛⬛
+🟨🟨🟨⬛⬛
+⬛⬛🟨⬛⬛
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 6/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: whump
+Attempt 3: dumbs
+Attempt 4: punji
+Attempt 5: jumpy
+-------------------
+Wordle 6/6
+
+⬛⬛⬛🟨⬛
+⬛⬛⬛⬛⬛
+⬛⬛🟨🟨🟨
+⬛🟩🟩⬛🟩
+🟨🟩⬛🟨⬛
+🟩🟩🟩🟩⬛
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 5/6
+Attempt 0: raise
+Attempt 1: zloty
+Attempt 2: wench
+Attempt 3: piked
+Attempt 4: xylyl
+Attempt 5: pixel
+-------------------
+Wordle 5/6
+
+⬛⬛🟨⬛🟨
+⬛🟨⬛⬛⬛
+⬛🟨⬛⬛⬛
+🟩🟩⬛🟩⬛
+🟨⬛⬛⬛🟩
+🟩🟩🟩🟩🟩
+
+
+
+=======================================
+Date: 2022-03-10
+
+Number of attempts: 4/6
+Attempt 0: raise
+Attempt 1: yupon
+Attempt 2: witch
+Attempt 3: mucks
+Attempt 4: packs
+-------------------
+Wordle 4/6
+
+⬛🟩⬛🟨⬛
+⬛⬛🟨⬛⬛
+⬛⬛⬛🟨⬛
+⬛⬛🟩🟩🟩
+🟩🟩🟩🟩🟩
+
+
+

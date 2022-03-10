@@ -1,8 +1,6 @@
-import time
-from turtle import color
+from Agent import Agent
 
-from pyparsing import col
-from scripts.Agent import Agent
+import time
 import keyboard
 import json
 
@@ -12,7 +10,7 @@ def RemoveDuplicateWords():
     """
 
     allWords = []
-    with open("ListOfWords.txt", "r") as allWordsFile:
+    with open("assets/ListOfWords.txt", "r") as allWordsFile:
         for line in allWordsFile:
             word = line.strip('\n').lower()
             if len(word) == 5 and word not in allWords:
@@ -21,7 +19,7 @@ def RemoveDuplicateWords():
                 word = word[:5]
                 allWords.append(word)
     allWords.sort()
-    with open('ListOfWords.txt', 'w') as wordFile:
+    with open('assets/ListOfWords.txt', 'w') as wordFile:
         for word in allWords:
             wordFile.write(f"{word}\n")
     
@@ -84,7 +82,7 @@ def main():
         keyboard.press_and_release('enter')
         location = agent.FindShareButton()
         agent.ClickShareButton(location)
-        fileName = "WordleUnlimitedRecord.txt"
+        fileName = wordleConfig["recordfile"]
         agent.RecordWordleData(fileName, numberOfAttempts, guessedWords, removedWords, addedWord, allColors, wordleConfig)
         time.sleep(0.5)
 

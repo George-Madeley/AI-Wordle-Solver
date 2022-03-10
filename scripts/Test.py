@@ -1,7 +1,5 @@
 import time
-from scripts.Agent import Agent
-
-import os
+from Agent import Agent
 
 def CheckWord(guessedWord: str, GOALWORD: str) -> any:
     """

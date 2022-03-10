@@ -1,12 +1,10 @@
-from ast import List
 from datetime import date
 import math
 from typing import TypeAlias
 
-from numpy import number
-from scripts.KnowledgeBase import KnowledgeBase
-from scripts.CharacterInfo import CharacterInfo
-from scripts.WordList import WordList
+from KnowledgeBase import KnowledgeBase
+from CharacterInfo import CharacterInfo
+from WordList import WordList
 
 from PIL import Image
 import pyautogui
@@ -46,7 +44,7 @@ class Agent:
         """
 
         allWords = WordList()
-        with open("ListOfWords.txt", "r") as allWordsFile:
+        with open("assets/ListOfWords.txt", "r") as allWordsFile:
             for line in allWordsFile:
                 word = line.strip('\n').lower()
                 if len(word) == 5:
@@ -162,7 +160,7 @@ class Agent:
         """
 
         if not self.__knowledgeBase.wordList.ContainsWord(word):
-            with open('ListOfWords.txt', 'a') as wordFile:
+            with open('assets/ListOfWords.txt', 'a') as wordFile:
                 wordFile.write(f"{word}\n")
 
     def RemoveWord(self, removeWord: str) -> None:
@@ -174,9 +172,9 @@ class Agent:
         """
         if self.__knowledgeBase.wordList.ContainsWord(removeWord):
             self.__knowledgeBase.wordList.RemoveWord(removeWord)
-            with open('ListOfWords.txt', 'r') as wordFile:
+            with open('assets/ListOfWords.txt', 'r') as wordFile:
                 words = wordFile.readlines()
-            with open('ListOfWords.txt', 'w') as wordFile:
+            with open('assets/ListOfWords.txt', 'w') as wordFile:
                 for word in words:
                     if word.strip('\n') == removeWord:
                         continue

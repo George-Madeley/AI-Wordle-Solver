@@ -168,7 +168,6 @@ airts
 aisle
 aitch
 aiver
-aiyee
 ajiva
 ajuga
 akees
@@ -237,7 +236,6 @@ aloin
 alone
 along
 aloof
-aloud
 alpha
 altar
 alter
@@ -396,7 +394,6 @@ arhat
 arias
 ariel
 arils
-arise
 arles
 armed
 armer
@@ -1176,7 +1173,6 @@ butch
 buteo
 butes
 butle
-butoh
 butte
 butts
 butty
@@ -1983,7 +1979,6 @@ debut
 debye
 decaf
 decal
-decan
 decay
 decks
 decor
@@ -2359,7 +2354,6 @@ dunes
 dungs
 dungy
 dunks
-dunno
 dunts
 duomi
 duomo
@@ -3042,7 +3036,6 @@ furan
 furls
 furor
 furry
-furth
 furze
 furzy
 fused
@@ -3387,7 +3380,6 @@ grant
 grape
 graph
 grapy
-grasp
 grass
 grate
 gratz
@@ -4682,7 +4674,6 @@ loche
 lochs
 locie
 locis
-locks
 locos
 locum
 locus
@@ -5038,7 +5029,6 @@ meson
 messy
 metal
 meted
-meter
 metes
 meths
 metis
@@ -5177,7 +5167,6 @@ monde
 mondo
 money
 mongo
-monic
 monie
 monks
 monos
@@ -5839,7 +5828,6 @@ parve
 parvo
 paseo
 pases
-pasha
 pashm
 paska
 passe
@@ -6452,7 +6440,6 @@ raged
 ragee
 rager
 rages
-ragga
 raggs
 raggy
 ragis
@@ -7467,7 +7454,6 @@ slued
 slues
 sluff
 slugs
-slump
 slums
 slung
 slunk
@@ -7676,7 +7662,6 @@ speel
 speer
 speil
 speir
-spell
 spelt
 spend
 spent
@@ -8650,7 +8635,6 @@ ummas
 ummed
 umped
 umphs
-umpty
 unais
 unapt
 unarm
@@ -8670,7 +8654,6 @@ uncut
 undee
 under
 undid
-undos
 undue
 unfed
 unfit
@@ -8743,7 +8726,6 @@ usher
 using
 usnea
 usque
-usual
 usurp
 usury
 uteri
@@ -8882,7 +8864,6 @@ vitae
 vital
 vitta
 vivas
-vivat
 vivid
 vixen
 vizir
@@ -8927,7 +8908,6 @@ vuggs
 vuggy
 vughs
 vulgo
-vulns
 vulva
 vying
 wacke
@@ -8953,7 +8933,6 @@ wails
 wains
 wairs
 waist
-waits
 waive
 waked
 waken
@@ -9131,7 +9110,6 @@ wilts
 wimps
 wimpy
 wince
-winch
 winds
 windy
 wined
@@ -9367,8 +9345,6 @@ yuppy
 yurta
 yurts
 yuzus
-zaida
-zaidy
 zaire
 zakat
 zamia
@@ -9383,7 +9359,6 @@ zebra
 zebus
 zedas
 zeins
-zendo
 zerks
 zeros
 zests
@@ -9403,7 +9378,6 @@ zinky
 zippo
 zippy
 ziram
-zitis
 zizit
 zlote
 zloty

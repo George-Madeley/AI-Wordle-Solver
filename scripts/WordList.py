@@ -1,7 +1,7 @@
 from typing import TypeAlias
-from scripts.CharacterInfo import CharacterInfo
+from CharacterInfo import CharacterInfo
 from random import randint
-from scripts.Node import Node
+from Node import Node
 
 AlphabetInfo: TypeAlias = list[CharacterInfo]
 

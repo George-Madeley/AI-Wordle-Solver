@@ -8,7 +8,7 @@
             "name": "Unlimited Test",
             "type": "python",
             "request": "launch",
-            "program": "WordleUnlimited.py",
+            "program": "scripts/WordleUnlimited.py",
             "console": "integratedTerminal",
             "justMyCode": true
         },
@@ -16,7 +16,7 @@
             "name": "Wordle Test",
             "type": "python",
             "request": "launch",
-            "program": "Wordle.py",
+            "program": "scripts/Wordle.py",
             "console": "integratedTerminal",
             "justMyCode": true
         },
@@ -24,7 +24,7 @@
             "name": "CMD Test",
             "type": "python",
             "request": "launch",
-            "program": "Test.py",
+            "program": "scripts/Test.py",
             "console": "integratedTerminal"
         }
     ]

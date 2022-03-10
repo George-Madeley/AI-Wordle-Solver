@@ -2,6 +2,10 @@
 
 ## Version History
 
+### v1.4.4
+
+- Added more records to the Wordle Unlimited test files.
+
 ### v1.4.3
 
 - Created a system which generates the emoji diagram for the record.
