@@ -39,19 +39,26 @@ class KnowledgeBase:
             lettersInGoal: The array of the letter in the goal word in their incorrect location.
             
         """
+        # letters not in the goal word
+        for letter in lettersNotInGoal:
+            if letter in lettersInGoal or letter in lettersInCorrectPos:
+                continue
+            elif letter not in self.lettersNotInGoal:
+                self.lettersNotInGoal.append(letter)
 
-        self.lettersNotInGoal += lettersNotInGoal
-
+        # letters in the goal word but in the incorrect place
         for index, letter in enumerate(lettersInGoal):
-            if letter in self.__alphabet and not letter in self.lettersInGoal:
+            if letter in self.__alphabet and not (letter in self.lettersInGoal):
                 self.lettersInGoal.append(letter)
+            if letter in self.__alphabet and not (letter in self.incorrectLetterPos[index]):
                 self.incorrectLetterPos[index].append(letter)
 
+        # letters in the goal word and in the correct place
         for index, letter in enumerate(lettersInCorrectPos):
             # Checks for letter conflict in estimated Goal word.
             if self.correctLetterPos[index] == None:
                 self.correctLetterPos[index] = letter
-                if letter in self.__alphabet and not letter in self.lettersInGoal:
+                if letter in self.__alphabet and not (letter in self.lettersInGoal):
                     self.lettersInGoal.append(letter)
             elif  self.correctLetterPos[index] == letter or letter == None:
                 pass
@@ -68,20 +75,26 @@ class KnowledgeBase:
         # Removes any word with letters that are not in the goal
         for letter in self.lettersNotInGoal:
             self.wordList.RemoveNodesWithLetter(letter)
-
+        self.wordList.UpdatePossibleWords()
+        pass
         # Removes any word with the letters in the goal but at the wrong position
         for index, letterList in enumerate(self.incorrectLetterPos):
             for letter in letterList:
                 self.wordList.RemoveNodesWithLetterAtIndex(letter, index)
-
+        self.wordList.UpdatePossibleWords()
+        pass
         # Removes any word that does not contain a letter in the goal word
         for letter in self.lettersInGoal:
             self.wordList.KeepNodesWithLetter(letter)
-
+        self.wordList.UpdatePossibleWords()
+        pass
         # Removes any word that does not contain a letter in the goal in the correct place
         for index, letter in enumerate(self.correctLetterPos):
             if letter != None:
                 self.wordList.KeepNodesWithLetterAtIndex(letter, index)
+        pass
+        self.wordList.UpdatePossibleWords()
+        pass
 
     def UpdateLettersNotInGoal(self) -> None:
         """
@@ -127,17 +140,11 @@ class KnowledgeBase:
         """
 
         # Creates dictionaries to store information about whether each letter is in all possible words
-        singleLetters = {}
-        doubleLetters = {}
-        tripleLetters = {}
-        quadrupleLetters = {}
-        quintupleLetters = {}
-        for letter in self.__alphabet:
-            singleLetters[letter] = True
-            doubleLetters[letter] = True
-            tripleLetters[letter] = True
-            quadrupleLetters[letter] = True
-            quintupleLetters[letter] = True
+        singleLetters = {letter: True for letter in self.__alphabet}
+        doubleLetters = {letter: True for letter in self.__alphabet}
+        tripleLetters = {letter: True for letter in self.__alphabet}
+        quadrupleLetters = {letter: True for letter in self.__alphabet}
+        quintupleLetters = {letter: True for letter in self.__alphabet}
 
         # Calcualtes which letters appears in all words
         singleLetters, doubleLetters, tripleLetters, quadrupleLetters, quintupleLetters = self.wordList.CalculateCommonLetters(singleLetters, doubleLetters, tripleLetters, quadrupleLetters, quintupleLetters)

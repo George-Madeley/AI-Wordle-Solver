@@ -18,7 +18,7 @@ def main():
     if numberOfAttempts > 0:
         filePath = agent.GetScreenshot()
         for attemptNumber in range(numberOfAttempts):
-            guessWord = str(input(f"What was the {attemptNumber} word:\t"))
+            guessWord = str(input(f"What was the {attemptNumber + 1} word:\t"))
             colorList = agent.ReadImage(attemptNumber, filePath)
             incorrectLetters, lettersIncorrectPos, lettersCorrectPos = agent.GetInformation(guessWord, colorList)
             agent.UpdateKnowledgeBase(incorrectLetters, lettersIncorrectPos, lettersCorrectPos)
@@ -51,7 +51,7 @@ def main():
         try:
             incorrectLetters, lettersIncorrectPos, lettersCorrectPos = agent.GetInformation(guessWord, colorList)
         except ValueError:
-            gameOver = str(input("Is te game over? (Y/N)\t")).lower() != "y"
+            gameOver = str(input("Is the game over? (Y/N)\t")).lower() == "y"
             if gameOver:
                 continue
             else:

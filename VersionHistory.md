@@ -2,6 +2,10 @@
 
 ## Version History
 
+### v1.4.0
+
+- Fixed an issue due to double letters. If the agent entered a word with a double letter but the goal did not contain any double letters, one of the double letters would have been added to the list of letters not in the goal word. This caused all goal words to be removed. Now, before a letter is added to the list of letters not in the goal word, it checks if that letter is in the list of letters in goal and in the list of letter in goal in the correct position.
+
 ### v1.3.6
 
 - Agent now has a method to record the results of the Wordle game to a text file called Record.txt.

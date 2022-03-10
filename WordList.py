@@ -52,7 +52,7 @@ class WordList:
         node = self.listOfWords[index]
         return node.GetWord()
 
-    def GetPossibleWords(self) -> list:
+    def UpdatePossibleWords(self) -> list:
         """
         Returns a list of all the possible words.
         
@@ -72,7 +72,7 @@ class WordList:
         """
 
         stringList = ""
-        possibleWords = self.GetPossibleWords()
+        possibleWords = self.__possibleWords
         for node in possibleWords:
             if node != None:
                 stringList += str(node) + "\n"
@@ -87,7 +87,7 @@ class WordList:
             characterOccurances: The stats object for the given letter.
         """
 
-        possibleWords = self.GetPossibleWords()
+        possibleWords = self.__possibleWords
         for node in possibleWords:
             node.CalculateCharacterOccurrences(characterOccurances)
     
@@ -257,7 +257,7 @@ class WordList:
 
         bestScore = 0
         bestWord = None
-        for node in self.GetPossibleWords():
+        for node in self.__possibleWords:
             if bestScore < node.GetOccuranceScore():
                 bestScore = node.GetOccuranceScore()
                 bestWord = node.GetWord()
@@ -284,7 +284,7 @@ class WordList:
             Dictionary of all letters that appear in every word five times.
         """
 
-        possibleWords = self.GetPossibleWords()
+        possibleWords = self.__possibleWords
         for node in possibleWords:
             word = node.GetWord()
             for letter in singleLetters:

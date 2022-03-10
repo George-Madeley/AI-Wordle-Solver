@@ -51,6 +51,7 @@ class Agent:
                 word = line.strip('\n').lower()
                 if len(word) == 5:
                     allWords.AddWord(word)
+        allWords.UpdatePossibleWords()
         return allWords
 
     def InitialiseAlphabetInfo(self) -> AlphabetInfo:
@@ -182,11 +183,32 @@ class Agent:
         self.__knowledgeBase.UpdatePossibleWords()
         self.__alphabetOccurances = self.InitialiseAlphabetInfo()
         self.CalculateAlphabetOccurances()
-        # print(self.__knowledgeBase.wordList.GetPossibleWordsStr())
+        print(self.__knowledgeBase.wordList.GetPossibleWordsStr())
         self.__knowledgeBase.UpdateLettersNotInGoal()
         self.__knowledgeBase.UpdateIncorrectLetterPos(self.__alphabetOccurances)
         self.__knowledgeBase.UpdateLettersInGoal()
         pass
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     def GetScreenshot(self) -> str:

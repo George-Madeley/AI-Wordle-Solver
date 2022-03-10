@@ -1,21 +1,26 @@
 =======================================
-Date: 2022-03-09
+Date: 2022-03-10
 
 Number of attempts: 3/6
 Attempt 0: arear
-Attempt 1: youth
-Attempt 2: month
+Attempt 1: zowie
+Attempt 2: youth
+Attempt 0: small
+Attempt 1: false
+Attempt 2: wrong
 
 Removed Words:
-	- zzzzz
-	- yyyyy
+	- tomoz
 
 Added Words:
-	+ aaaaa
+	+ lapse
 -------------------
-Wordle 263 3/6
+Wordle 264 X/6
 
+🟨⬛🟨⬛⬛
+⬛⬛⬛⬛🟩
 ⬛⬛⬛⬛⬛
-⬛🟩⬛🟩🟩
-🟩🟩🟩🟩🟩
+🟨⬛🟨🟨⬛
+⬛🟩🟨🟩🟩
+⬛⬛⬛⬛⬛
 
