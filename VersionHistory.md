@@ -2,6 +2,11 @@
 
 ## Version History
 
+### v1.4.1
+
+- Added function to Main.py to remove any duplicates from ListOfWords.txt
+- Added 10,000 words to the LiistOfWords.txt which were grabbed from <https://word.tips/five-letter-words/>
+
 ### v1.4.0
 
 - Fixed an issue due to double letters. If the agent entered a word with a double letter but the goal did not contain any double letters, one of the double letters would have been added to the list of letters not in the goal word. This caused all goal words to be removed. Now, before a letter is added to the list of letters not in the goal word, it checks if that letter is in the list of letters in goal and in the list of letter in goal in the correct position.
