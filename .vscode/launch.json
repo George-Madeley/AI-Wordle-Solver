@@ -5,27 +5,44 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Remove Duplicates",
+            "type": "python",
+            "request": "launch",
+            "program": "scripts/RemoveDuplicates.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
             "name": "Unlimited Test",
             "type": "python",
             "request": "launch",
-            "program": "scripts/WordleUnlimited.py",
+            "program": "scripts/Main.py",
             "console": "integratedTerminal",
-            "justMyCode": true
+            "args": [
+                "True",
+                "config/UnlimitedWordle.json"
+            ]
         },
         {
             "name": "Wordle Test",
             "type": "python",
             "request": "launch",
-            "program": "scripts/Wordle.py",
+            "program": "scripts/Main.py",
             "console": "integratedTerminal",
-            "justMyCode": true
+            "args": [
+                "True",
+                "config/Wordle.json"
+            ]
         },
         {
-            "name": "CMD Test",
+            "name": "Test All Words",
             "type": "python",
             "request": "launch",
-            "program": "scripts/Test.py",
-            "console": "integratedTerminal"
+            "program": "scripts/Main.py",
+            "console": "integratedTerminal",
+            "args": [
+                "False"
+            ]
         }
     ]
 }

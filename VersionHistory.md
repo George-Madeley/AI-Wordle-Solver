@@ -2,6 +2,11 @@
 
 ## Version History
 
+### v1.4.5
+
+- Moved `RemoveDuplicates`  into its own python file and given its own test configuration.
+- Combined `Test.py`, `Wordle.py`, and `WordleUnlimited.py` into one python file called `Main.py`. Each one can be called using arguments in the commandline.
+
 ### v1.4.4
 
 - Added more records to the Wordle Unlimited test files.

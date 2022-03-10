@@ -43,5 +43,9 @@
         "y": "1350"
     },
     "makeemojis": "False",
-    "recordfile": "test/WordleRecord.txt"
+    "recordfile": "test/WordleRecord.txt",
+    "turndelay": "5",
+    "infiniteloop": "False",
+    "checkpreviousattempts": "True",
+    "addwords": "False"
 }
