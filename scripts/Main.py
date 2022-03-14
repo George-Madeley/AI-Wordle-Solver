@@ -4,6 +4,8 @@ import sys
 import time
 import keyboard
 import json
+import pyperclip
+from datetime import date
 
 def Main():
     print(sys.argv)
@@ -15,93 +17,6 @@ def Main():
         Wordle(configFile)
     else:
         TestAllKnownWords()
-
-
-def Wordle(configFileName):
-    """
-    Tests the AI against actually Wordle games.
-    
-    Args:
-        configFile: The name of the config file to use.
-    """
-
-    wordleConfig = ReadJSON(configFileName)
-
-    isLooping = wordleConfig["infiniteloop"] == "True"
-    checkPreviousAttempts = wordleConfig["checkpreviousattempts"] == "True"
-    addWords = wordleConfig["addwords"] == "True"
-
-    
-
-    setLooping = True
-    while setLooping:
-        setLooping = isLooping
-        agent = Agent(wordleConfig)
-
-        gameOver = False
-        numberOfAttempts = 0
-        guessedWords = []
-        removedWords = []
-        allReadColors = []
-        addedWord = None
-
-        if checkPreviousAttempts:
-            numberOfAttempts, allReadColors, guessedWords = CheckForPreviousAttempts(agent, allReadColors, guessedWords)
-
-        print("Press ESC to continue...")
-        keyboard.wait('esc')
-        print("PRESSED ESC")
-        # Plays the Game
-        while not gameOver and numberOfAttempts < 6:
-            guessWord = agent.GetGuessWord(numberOfAttempts)
-            keyboard.write(guessWord)
-            print("Press ENTER to continue...")
-            keyboard.wait('enter')
-            print("PRESSED ENTER")
-            time.sleep(float(wordleConfig["turndelay"]))
-            screenShotFilePath = agent.GetScreenshot()
-            readColorsList = agent.ReadImage(numberOfAttempts, screenShotFilePath)
-            allReadColors.append(readColorsList)
-            # Checks if the word was invalid
-            if readColorsList.count("black") == 5:
-                removedWords.append(guessWord)
-                agent.RemoveWord(guessWord)
-                for i in range(5):
-                    keyboard.press_and_release('backspace')
-                continue
-            guessedWords.append(guessWord)
-            # Checks if an error was raised due to the win screen.
-            try:
-                incorrectLetters, lettersIncorrectPos, lettersCorrectPos = agent.GetInformation(guessWord, readColorsList)
-            except ValueError:
-                gameOver = True
-                break
-            # Checks if the goal word was found.
-            if not None in lettersCorrectPos:
-                gameOver = True
-                continue
-            agent.UpdateKnowledgeBase(incorrectLetters, lettersIncorrectPos, lettersCorrectPos)
-            numberOfAttempts += 1
-        # Checks if the AI lost due to not knowing the Goal Word.
-
-        if addWords:
-            if numberOfAttempts >= 6:
-                isValid = str(input("Do you want to add a word? (Y/N)\t")).lower() != "y"
-                while not isValid:
-                    newWord = str(input("Enter new Word:\t")).lower()
-                    if len(newWord) == 5:
-                        isValid = True
-                        addedWord = newWord
-                        agent.AddNewWord(newWord)
-                        continue
-                    print("The word you have entered is invalid. Please try again.")
-
-        keyboard.press_and_release('enter')
-        location = agent.FindShareButton()
-        agent.ClickShareButton(location)
-        fileName = wordleConfig["recordfile"]
-        agent.RecordWordleData(fileName, numberOfAttempts, guessedWords, removedWords, addedWord, allReadColors, wordleConfig)
-        time.sleep(0.5)
 
 def CheckForPreviousAttempts(agent: Agent, allColors: list, guessedWords: list) -> any:
     """
@@ -126,25 +41,6 @@ def CheckForPreviousAttempts(agent: Agent, allColors: list, guessedWords: list) 
             incorrectLetters, lettersIncorrectPos, lettersCorrectPos = agent.GetInformation(guessWord, colorList)
             agent.UpdateKnowledgeBase(incorrectLetters, lettersIncorrectPos, lettersCorrectPos)
     return numberOfAttempts, allColors, guessedWords
-    
-def ReadJSON(JSONFilename) -> dict:
-    """
-    Reads the JSON data and returns the data.
-
-    Args:
-        JSONFilename: The name of the JSON file.
-    
-    Returns:
-        The data as a dictionary.
-    """
-    
-    data = None
-    with open(JSONFilename, "r") as wordleConfig:
-        data = json.load(wordleConfig)
-    return data
-
-
-
 
 def CheckWord(guessedWord: str, GOALWORD: str) -> any:
     """
@@ -191,6 +87,23 @@ def CheckWord(guessedWord: str, GOALWORD: str) -> any:
     
     return incorrectLetters, lettersIncorrectPos, lettersCorrectPos
 
+def FindPreviousWord(allWords):
+    """
+    Gets the infex of a given word.
+    
+    Args:
+        allWords: All words from the text file.
+        
+    Returns:
+        The index of the word.
+    """
+    lastWordTested = input("What was the last tested word:\t")
+    try:
+        index = allWords.index(f"{lastWordTested}\n")
+    except ValueError:
+        index = 0
+    return index
+
 def isGoalWord(guessWord: str, GOALWORD: str) -> bool:
     """
     Returns True if given word is the goal word.
@@ -203,6 +116,69 @@ def isGoalWord(guessWord: str, GOALWORD: str) -> bool:
     """
 
     return guessWord == GOALWORD
+    
+def ReadJSON(JSONFilename) -> dict:
+    """
+    Reads the JSON data and returns the data.
+
+    Args:
+        JSONFilename: The name of the JSON file.
+    
+    Returns:
+        The data as a dictionary.
+    """
+    
+    data = None
+    with open(JSONFilename, "r") as wordleConfig:
+        data = json.load(wordleConfig)
+    return data
+
+def RecordWordleData(fileName: str, numberOfAttempts: int, guessedWords: list, removedWords: list, addedWord: str, allColors: list, wordleConfig: dict) -> None:
+        """
+        Records how the last game went and appends it to a file.
+        
+        Args:
+            fileName: The anme of the record file.
+            numberOfAttampts: The number of attempts it took the agent to solve the Wordle.
+            guessWords: A list of all the guessed words in order.
+            removedWords: A lits of all removed words.
+            addedWord: The added word.
+            allColors: The colors of the previous attempts.
+            wordleConfig: The data from the config file.
+        """
+
+        # Generates its own emojis if required
+        if wordleConfig["makeemojis"] == "True":
+            wordleShareData = f"Wordle {numberOfAttempts}/6\r\r"
+            for row in allColors:
+                for color in row:
+                    if color == "grey":
+                        wordleShareData += "⬛"
+                    elif color == "yellow":
+                        wordleShareData += "🟨"
+                    elif color == "green":
+                        wordleShareData += "🟩"
+                wordleShareData += "\r"
+            wordleShareData += "\r"
+        else:
+            wordleShareData = pyperclip.paste()
+
+        # Appends to the record file.
+        with open(fileName, 'a', encoding="UTF-8") as recordFile:
+            recordFile.write(f"=======================================\n")
+            recordFile.write(f"Date: {date.today()}\n")
+            recordFile.write(f"\nNumber of attempts: {numberOfAttempts}/6\n")
+            for attempt, word in enumerate(guessedWords):
+                recordFile.write(f"Attempt {attempt}: {word}\n")
+            if removedWords:
+                recordFile.write(f"\nRemoved Words:\n")
+                for removedWord in removedWords:
+                    recordFile.write(f"\t- {removedWord}\n")
+            if addedWord:
+                recordFile.write(f"\nAdded Words:\n")
+                recordFile.write(f"\t+ {addedWord}\n")
+            recordFile.write(f"-------------------\n")
+            recordFile.write(wordleShareData.replace('\n', '') + "\n\n")
 
 def RunGame(GOALWORD) -> list:
     """
@@ -280,22 +256,92 @@ def TestAllKnownWords():
         testRecordFile.write(f"Average Number of Attempts:\t{str(totalAttempts / numberOfWords)}\n")
         testRecordFile.write(f"Total Time Taken:\t{totalTime}, Average Time:\t{totalTime / numberOfWords}\n")
 
-def FindPreviousWord(allWords):
+def Wordle(configFileName):
     """
-    Gets the infex of a given word.
+    Tests the AI against actually Wordle games.
     
     Args:
-        allWords: All words from the text file.
-        
-    Returns:
-        The index of the word.
+        configFile: The name of the config file to use.
     """
-    lastWordTested = input("What was the last tested word:\t")
-    try:
-        index = allWords.index(f"{lastWordTested}\n")
-    except ValueError:
-        index = 0
-    return index
+
+    wordleConfig = ReadJSON(configFileName)
+
+    isLooping = wordleConfig["infiniteloop"] == "True"
+    checkPreviousAttempts = wordleConfig["checkpreviousattempts"] == "True"
+    addWords = wordleConfig["addwords"] == "True"
+
+    
+
+    setLooping = True
+    while setLooping:
+        setLooping = isLooping
+        agent = Agent(wordleConfig)
+
+        gameOver = False
+        numberOfAttempts = 0
+        guessedWords = []
+        removedWords = []
+        addedWord = None
+        allReadColors = []
+
+        if checkPreviousAttempts:
+            numberOfAttempts, allReadColors, guessedWords = CheckForPreviousAttempts(agent, allReadColors, guessedWords)
+
+        print("Press ESC to continue...")
+        keyboard.wait('esc')
+        print("PRESSED ESC")
+        # Plays the Game
+        while not gameOver and numberOfAttempts < 6:
+            guessWord = agent.GetGuessWord(numberOfAttempts)
+            keyboard.write(guessWord)
+            print("Press ENTER to continue...")
+            keyboard.wait('enter')
+            print("PRESSED ENTER")
+            time.sleep(float(wordleConfig["turndelay"]))
+            screenShotFilePath = agent.GetScreenshot()
+            readColorsList = agent.ReadImage(numberOfAttempts, screenShotFilePath)
+            allReadColors.append(readColorsList)
+            # Checks if the word was invalid
+            if readColorsList.count("black") == 5:
+                removedWords.append(guessWord)
+                agent.RemoveWord(guessWord)
+                for i in range(5):
+                    keyboard.press_and_release('backspace')
+                continue
+            guessedWords.append(guessWord)
+            # Checks if an error was raised due to the win screen.
+            try:
+                incorrectLetters, lettersIncorrectPos, lettersCorrectPos = agent.GetInformation(guessWord, readColorsList)
+            except ValueError:
+                gameOver = True
+                break
+            # Checks if the goal word was found.
+            if None not in lettersCorrectPos:
+                gameOver = True
+                continue
+            agent.UpdateKnowledgeBase(incorrectLetters, lettersIncorrectPos, lettersCorrectPos)
+            numberOfAttempts += 1
+        # Checks if the AI lost due to not knowing the Goal Word.
+
+        if addWords:
+            if numberOfAttempts >= 6:
+                isValid = str(input("Do you want to add a word? (Y/N)\t")).lower() != "y"
+                while not isValid:
+                    newWord = str(input("Enter new Word:\t")).lower()
+                    if len(newWord) == 5:
+                        isValid = True
+                        addedWord = newWord
+                        agent.AddNewWord(newWord)
+                        continue
+                    print("The word you have entered is invalid. Please try again.")
+
+        keyboard.press_and_release('enter')
+        location = agent.FindShareButton()
+        agent.ClickShareButton(location)
+        fileName = wordleConfig["recordfile"]
+        RecordWordleData(fileName, numberOfAttempts, guessedWords, removedWords, addedWord, allReadColors, wordleConfig)
+        time.sleep(0.5)
+
 
 if __name__ == "__main__":  
     Main()

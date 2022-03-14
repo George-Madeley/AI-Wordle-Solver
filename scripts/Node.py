@@ -1,5 +1,3 @@
-from CharacterInfo import CharacterInfo
-
 class Node:
     """
     Stores a given word.
@@ -83,22 +81,6 @@ class Node:
 
         letterIndex = str(self.__word).find(letter)
         return letterIndex
-
-    def CalculateCharacterOccurrences(self, characterStats: CharacterInfo) -> None:
-        """
-        Calculates the number of occurances of a given character.
-
-        Calculates the number of time the provided letter
-        occurs within the stored word. Adds this to the provided
-        character stats object.
-        
-        Args:
-            characterStats: The letters stats object.
-        """
-
-        for index, letter in enumerate(self.__word):
-            if letter == characterStats.GetCharacter():
-                characterStats.IncrementStatAtIndex(index)
 
     def ResetOccuranceScore(self) -> None:
         """

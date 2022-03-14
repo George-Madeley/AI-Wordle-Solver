@@ -2,6 +2,15 @@
 
 ## Version History
 
+### v1.5.0
+
+- Refactored code.
+- `CalculateOccuranceScores()` now calculates score based on letter position as well.
+- `CharacterInfo.py` class has been removed.
+- `WordList.py` class has been removed and incorporated into `KnowledgeBase.py`
+- Renamed `RemoveDuplicateWords.py` to `utils.py`. No longer runs `RemoveDuplicateWords()` on launch.
+- Fixed issue where program still prioritises words with the highest knowledge score despite being only one possible word left.
+
 ### v1.4.5
 
 - Moved `RemoveDuplicates`  into its own python file and given its own test configuration.

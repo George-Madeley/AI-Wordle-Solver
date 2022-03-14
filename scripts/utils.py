@@ -16,6 +16,3 @@ def RemoveDuplicateWords():
     with open('ListOfWords.txt', 'w') as wordFile:
         for word in allWords:
             wordFile.write(f"{word}\n")
-
-if __name__ == "__main__":  
-    RemoveDuplicateWords()

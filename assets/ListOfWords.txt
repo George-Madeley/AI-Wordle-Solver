@@ -5172,7 +5172,6 @@ monks
 monos
 monte
 month
-monty
 mooch
 moods
 moody
@@ -6139,7 +6138,6 @@ ponds
 pones
 pongo
 pongs
-pongy
 ponzu
 pooch
 poods
@@ -6360,7 +6358,6 @@ pyxis
 pzazz
 qadis
 qaids
-qajaq
 qanat
 qapik
 qibla
@@ -8577,7 +8574,6 @@ twier
 twigs
 twill
 twine
-twink
 twins
 twiny
 twirl
