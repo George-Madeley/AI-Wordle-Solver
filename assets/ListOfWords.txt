@@ -5305,7 +5305,6 @@ mutes
 mutha
 muton
 mutts
-muxed
 muxes
 muzak
 muzzy
@@ -5434,7 +5433,6 @@ nidus
 niece
 nieve
 niffs
-niffy
 nifty
 nighs
 night
@@ -8825,7 +8823,6 @@ video
 viers
 views
 viewy
-viffs
 vigas
 vigia
 vigil
@@ -8885,7 +8882,6 @@ voile
 volar
 voled
 voles
-volks
 volta
 volte
 volti

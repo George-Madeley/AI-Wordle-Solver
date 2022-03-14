@@ -283,8 +283,8 @@ class Agent:
             2D-list of Images.
         """
         dividedImage = []
-        boxX = math.floor(int(self.__config["size"]["x"]) / 5) + int(self.__config["gap"]["x"])
-        boxY = math.floor(int(self.__config["size"]["y"]) / 6) + int(self.__config["gap"]["x"])
+        boxX = math.floor(int(self.__config["size"]["x"]) / 5)
+        boxY = math.floor(int(self.__config["size"]["y"]) / 6)
         colorBoxSize = int(self.__config["box"]["x"])
         perimeterX = int(self.__config["perimeter"]["x"])
         perimeterY = int(self.__config["perimeter"]["y"])
@@ -348,7 +348,7 @@ class Agent:
         """
 
         # Generates its own emojis if required
-        if bool(wordleConfig["makeemojis"]):
+        if wordleConfig["makeemojis"] == "True":
             wordleShareData = f"Wordle {numberOfAttempts}/6\r\r"
             for row in allColors:
                 for color in row:

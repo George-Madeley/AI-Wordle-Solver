@@ -6,7 +6,7 @@ import keyboard
 import json
 
 def Main():
-    print(sys.args)
+    print(sys.argv)
     if (len(sys.argv) < 3):
         print("\n\tError, program needs three arguments to run\n" )
         sys.exit(1)
@@ -27,13 +27,11 @@ def Wordle(configFileName):
 
     wordleConfig = ReadJSON(configFileName)
 
-    isLooping = bool(wordleConfig["infiniteloop"])
-    checkPreviousAttempt = bool(wordleConfig["checkpreviousattempt"])
-    addWords = bool(wordleConfig["addwords"])
+    isLooping = wordleConfig["infiniteloop"] == "True"
+    checkPreviousAttempts = wordleConfig["checkpreviousattempts"] == "True"
+    addWords = wordleConfig["addwords"] == "True"
 
-    print("Press ESC to continue...")
-    keyboard.wait('esc')
-    print("PRESSED ESC")
+    
 
     setLooping = True
     while setLooping:
@@ -44,24 +42,28 @@ def Wordle(configFileName):
         numberOfAttempts = 0
         guessedWords = []
         removedWords = []
-        allColors = []
+        allReadColors = []
         addedWord = None
 
-        if checkPreviousAttempt:
-            numberOfAttempts, allColors = CheckForPreviousAttempts(agent, allColors)
+        if checkPreviousAttempts:
+            numberOfAttempts, allReadColors, guessedWords = CheckForPreviousAttempts(agent, allReadColors, guessedWords)
 
+        print("Press ESC to continue...")
+        keyboard.wait('esc')
+        print("PRESSED ESC")
         # Plays the Game
         while not gameOver and numberOfAttempts < 6:
             guessWord = agent.GetGuessWord(numberOfAttempts)
             keyboard.write(guessWord)
-            keyboard.press_and_release('enter')
+            print("Press ENTER to continue...")
             keyboard.wait('enter')
-            time.sleep(int(wordleConfig["timedelay"]))
-            filePath = agent.GetScreenshot()
-            colorList = agent.ReadImage(numberOfAttempts, filePath)
-            allColors.append(colorList)
+            print("PRESSED ENTER")
+            time.sleep(float(wordleConfig["turndelay"]))
+            screenShotFilePath = agent.GetScreenshot()
+            readColorsList = agent.ReadImage(numberOfAttempts, screenShotFilePath)
+            allReadColors.append(readColorsList)
             # Checks if the word was invalid
-            if colorList.count("black") == 5:
+            if readColorsList.count("black") == 5:
                 removedWords.append(guessWord)
                 agent.RemoveWord(guessWord)
                 for i in range(5):
@@ -70,7 +72,7 @@ def Wordle(configFileName):
             guessedWords.append(guessWord)
             # Checks if an error was raised due to the win screen.
             try:
-                incorrectLetters, lettersIncorrectPos, lettersCorrectPos = agent.GetInformation(guessWord, colorList)
+                incorrectLetters, lettersIncorrectPos, lettersCorrectPos = agent.GetInformation(guessWord, readColorsList)
             except ValueError:
                 gameOver = True
                 break
@@ -98,10 +100,10 @@ def Wordle(configFileName):
         location = agent.FindShareButton()
         agent.ClickShareButton(location)
         fileName = wordleConfig["recordfile"]
-        agent.RecordWordleData(fileName, numberOfAttempts, guessedWords, removedWords, addedWord, allColors, wordleConfig)
+        agent.RecordWordleData(fileName, numberOfAttempts, guessedWords, removedWords, addedWord, allReadColors, wordleConfig)
         time.sleep(0.5)
 
-def CheckForPreviousAttempts(agent, allColors):
+def CheckForPreviousAttempts(agent: Agent, allColors: list, guessedWords: list) -> any:
     """
     Asks the user if any previous attempts were made and what were those previous attempts.
     
@@ -118,11 +120,12 @@ def CheckForPreviousAttempts(agent, allColors):
         filePath = agent.GetScreenshot()
         for attemptNumber in range(numberOfAttempts):
             guessWord = str(input(f"What was the {attemptNumber + 1} word:\t"))
+            guessedWords.append(guessWord)
             colorList = agent.ReadImage(attemptNumber, filePath)
             allColors.append(colorList)
             incorrectLetters, lettersIncorrectPos, lettersCorrectPos = agent.GetInformation(guessWord, colorList)
             agent.UpdateKnowledgeBase(incorrectLetters, lettersIncorrectPos, lettersCorrectPos)
-    return numberOfAttempts, allColors
+    return numberOfAttempts, allColors, guessedWords
     
 def ReadJSON(JSONFilename) -> dict:
     """
@@ -139,6 +142,9 @@ def ReadJSON(JSONFilename) -> dict:
     with open(JSONFilename, "r") as wordleConfig:
         data = json.load(wordleConfig)
     return data
+
+
+
 
 def CheckWord(guessedWord: str, GOALWORD: str) -> any:
     """
