@@ -2,6 +2,10 @@
 
 ## Version History
 
+### v1.5.1
+
+- Updated code docStrings.
+
 ### v1.5.0
 
 - Refactored code.

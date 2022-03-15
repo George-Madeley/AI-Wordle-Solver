@@ -183,9 +183,6 @@ class KnowledgeBase:
         """
         Calculates the occurance scores of all words in the list. It now
         calculates based on letter position as well.
-        
-        Args:
-            alphabetStats: The array of each letters stats within the alphabet.
         """
 
         for node in self.listOfWords:
@@ -217,7 +214,8 @@ class KnowledgeBase:
 
     def GetBestKnowledgeWord(self) -> Node:
         """
-        Returns the word with the most amount of new knowledge.
+        Returns the word with the most amount of new knowledge
+        and with the largest occurance score out of those words..
         
         Returns:
             The word with the most amount of new knowledge.
@@ -350,14 +348,14 @@ class KnowledgeBase:
         self.listOfWords = [node for node in self.listOfWords if node.GetWord() != removeWord]
         self.__possibleWords = [node for node in self.listOfWords if node.GetWord() != removeWord]
 
-    def UpdateBasicKnowledge(self, lettersNotInGoal: list[str], lettersInGoal: list[any], lettersInCorrectPos: list[any]) -> None:
+    def UpdateBasicKnowledge(self, lettersNotInGoal: list, lettersInGoal: list, lettersInCorrectPos: list) -> None:
         """
         Adds the information gained from the last Wordle attempt to the knowledge base.
         
         Args:
             lettersNotInGoal: The array of the letters not in the goal word.
             lettersInGoal: The array of the letter in the goal word in their incorrect location.
-            
+            lettersInCorrectPos: The array of the letters in the goal word in their correct location.
         """
         # letters not in the goal word
         for letter in lettersNotInGoal:
@@ -391,9 +389,6 @@ class KnowledgeBase:
         Using the character occurances, updates the list of letters
         in the incorrect position if that letter has an occurance
         score of zero in that position.
-        
-        Args:
-            alphabetOccurances: List of each character occurance within all possible words.
         """
         
         for character, occurances in self.alphabetOccurances.items():

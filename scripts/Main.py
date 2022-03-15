@@ -8,6 +8,10 @@ import pyperclip
 from datetime import date
 
 def Main():
+    """
+    Checks the number of arguments given and runs a given test.
+    """
+
     print(sys.argv)
     if (len(sys.argv) < 3):
         print("\n\tError, program needs three arguments to run\n" )
@@ -25,11 +29,14 @@ def CheckForPreviousAttempts(agent: Agent, allColors: list, guessedWords: list) 
     Args:
         agent: The AI.
         allColors: An array of all previously found colors.
+        guessedWords: A list to keep track of all the previous guesses.
     
     Returns:
         The current attempt number.
+        A list of all of the previous found colors.
+        A list of all of the previous guessed words.
     """
-    # Allows you to run the AI midway trhough a game.
+    
     numberOfAttempts = int(input("How many previous Attempts:\t"))
     if numberOfAttempts > 0:
         filePath = agent.GetScreenshot()
@@ -42,13 +49,14 @@ def CheckForPreviousAttempts(agent: Agent, allColors: list, guessedWords: list) 
             agent.UpdateKnowledgeBase(incorrectLetters, lettersIncorrectPos, lettersCorrectPos)
     return numberOfAttempts, allColors, guessedWords
 
-def CheckWord(guessedWord: str, GOALWORD: str) -> any:
+def CheckWord(guessWord: str, goalWord: str) -> any:
     """
     Compares given word with the goal word and returns any found
     information.
     
     Args:
         guessedWord: The word to be compared to the goal word.
+        goalWord: The goal word.
 
     Returns:
         An array for all the letters not in the goal word,
@@ -56,21 +64,21 @@ def CheckWord(guessedWord: str, GOALWORD: str) -> any:
         An array for all the letters in the goal word and in the correct location.
     """
 
-    guessedWord = guessedWord.rstrip("\n")
+    guessWord = guessWord.rstrip("\n")
     incorrectLetters = []
     lettersIncorrectPos = [None, None, None, None, None]
     lettersCorrectPos = [None, None, None, None, None]
 
     # Counts how many times each letter appears in the goal word.
     letterCount = {}
-    for letter in GOALWORD:
+    for letter in goalWord:
         if not letter in letterCount.keys():
-            letterCount[letter] = GOALWORD.count(letter)
+            letterCount[letter] = goalWord.count(letter)
 
-    for guessIndex, guessLetter in enumerate(guessedWord):
-        if guessLetter in GOALWORD:
+    for guessIndex, guessLetter in enumerate(guessWord):
+        if guessLetter in goalWord:
             letterCount[guessLetter] -= 1
-            if guessLetter == GOALWORD[guessIndex]:
+            if guessLetter == goalWord[guessIndex]:
                 lettersCorrectPos[guessIndex] = guessLetter
             else:
                 lettersIncorrectPos[guessIndex] = guessLetter
@@ -87,7 +95,7 @@ def CheckWord(guessedWord: str, GOALWORD: str) -> any:
     
     return incorrectLetters, lettersIncorrectPos, lettersCorrectPos
 
-def FindPreviousWord(allWords):
+def FindPreviousWord(allWords: list) -> int:
     """
     Gets the infex of a given word.
     
@@ -97,6 +105,7 @@ def FindPreviousWord(allWords):
     Returns:
         The index of the word.
     """
+
     lastWordTested = input("What was the last tested word:\t")
     try:
         index = allWords.index(f"{lastWordTested}\n")
@@ -117,7 +126,7 @@ def isGoalWord(guessWord: str, GOALWORD: str) -> bool:
 
     return guessWord == GOALWORD
     
-def ReadJSON(JSONFilename) -> dict:
+def ReadJSON(JSONFilename: str) -> dict:
     """
     Reads the JSON data and returns the data.
 
@@ -180,12 +189,12 @@ def RecordWordleData(fileName: str, numberOfAttempts: int, guessedWords: list, r
             recordFile.write(f"-------------------\n")
             recordFile.write(wordleShareData.replace('\n', '') + "\n\n")
 
-def RunGame(GOALWORD) -> list:
+def RunGame(goalWord: str) -> list:
     """
     Runs the game with the given goal word.
     
     Args:
-        GOALWORD: the goal word the agent has to guess.
+        goalWord: the goal word the agent has to guess.
         
     Returns:
         True if the agent gets the word within the six attempts.
@@ -202,10 +211,10 @@ def RunGame(GOALWORD) -> list:
         numberOfAttempts += 1
         # print("Guessing: " + str(guessedWord))
         # print("===================")
-        gameOver = isGoalWord(guessedWord, GOALWORD)
+        gameOver = isGoalWord(guessedWord, goalWord)
         if gameOver:
             continue
-        incorrectLetters, lettersIncorrectPos, lettersCorrectPos = CheckWord(guessedWord, GOALWORD)
+        incorrectLetters, lettersIncorrectPos, lettersCorrectPos = CheckWord(guessedWord, goalWord)
         agent.UpdateKnowledgeBase(incorrectLetters, lettersIncorrectPos, lettersCorrectPos)
 
     if numberOfAttempts >= 6 and not gameOver:
@@ -213,10 +222,11 @@ def RunGame(GOALWORD) -> list:
         return False, numberOfAttempts
     return True, numberOfAttempts
 
-def TestAllKnownWords():
+def TestAllKnownWords() -> None:
     """
     Tests the agent against all known words.
     """
+
     numberOfWords = 0
     totalAttempts = 0
     totalTime = 0
@@ -256,7 +266,7 @@ def TestAllKnownWords():
         testRecordFile.write(f"Average Number of Attempts:\t{str(totalAttempts / numberOfWords)}\n")
         testRecordFile.write(f"Total Time Taken:\t{totalTime}, Average Time:\t{totalTime / numberOfWords}\n")
 
-def Wordle(configFileName):
+def Wordle(configFileName: str):
     """
     Tests the AI against actually Wordle games.
     

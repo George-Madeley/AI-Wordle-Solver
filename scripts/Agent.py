@@ -10,7 +10,7 @@ class Agent:
     
     Attributes:
         possibleWords: A LinkedList of all words that the goal word could be.
-        alphabetOccurances: An array of CharacterInfo objects for each letter in the alphabet.
+        config: A dictionary of information from the passed in configuration.json file.
     """
     
     def __init__(self, config: dict) -> None:
@@ -25,10 +25,10 @@ class Agent:
 
     def AddNewWord(self, word: str) -> None:
         """
-        Adds new word to linked list of possible words.
+        Adds new word to list of words text file.
 
         Args:
-            word: The word to add to all possible words.
+            word: The word to add.
         """
 
         if not self.__knowledgeBase.ContainsWord(word):
@@ -38,6 +38,9 @@ class Agent:
     def ClickShareButton(self, location: tuple) -> None:
         """
         Clicks the share button.
+
+        Args:
+            location: A tuple for the x and y position of the share button.
         """
 
         x, y = location
@@ -110,6 +113,12 @@ class Agent:
     def GetColor(self, image: Image) -> str:
         """
         Gets the background color of the image.
+
+        Args:
+            image: The image to find the color in.
+
+        Returns:
+            The name of the color ("grey", "yellow", "green", "black")
         """
         # image.show()
         try:
@@ -143,17 +152,14 @@ class Agent:
 
     def GetGuessWord(self, attemptNumber: int) -> str:
         """
-        Initialises and calculates the stats for all the
-        letters in the alphabet and returns the best word
-        to use given the current set of possible words
+        Gets the best word given the current state of the game.
 
         Args:
             attemptNumber: The number of attempts the
             agent has had to solve the puzzle.
 
         Returns:
-            The word with the largest score by letter
-            occurances.
+            The best word to use.
         """
 
         if attemptNumber == 0:
@@ -167,6 +173,21 @@ class Agent:
                 return bestNode.GetWord()
 
     def GetInformation(self, guessedWord: str, colorList: list):
+        """
+        Uses the given list of colors and the previous entered word to
+        find which letters are in the goal word and which are in the
+        correct position.
+        
+        Args:
+            guessedWord: The previously entered word.
+            colorList: Thge colors found from the previously entered word.
+
+        Returns:
+            An array for all the letters not in the goal word,
+            An array for all the letters in the goal word but in the incorrect location,
+            An array for all the letters in the goal word and in the correct location.
+        """
+
         guessedWord = guessedWord.rstrip("\n")
         lettersNotInGoal = []
         incorrectLetterPos = [None, None, None, None, None]
@@ -189,14 +210,14 @@ class Agent:
         Returns:
             The string of the screenshot filepath.
         """
+
         pyautogui.screenshot('images\shot.png')
         return 'images\shot.png'
 
     def ReadAllWords(self) -> None:
         """
         Reads all the words from the ListOfWords.txt
-        file and stores them as a LinkedList. Returns
-        this LinkedList.
+        file and stores them as a list.
         """
 
         with open("assets/ListOfWords.txt", "r") as allWordsFile:
@@ -213,6 +234,9 @@ class Agent:
         Args:
             attemptNumber: The attempt number.
             filePath: The file path to the screenshot.
+
+        Returns:
+            A list of colors found from the previously entered word.
         """
 
         with Image.open(filePath) as screenshot:
@@ -237,6 +261,7 @@ class Agent:
         Args:
             removeWord: The word to remove.
         """
+
         if self.__knowledgeBase.ContainsWord(removeWord):
             self.__knowledgeBase.RemoveWord(removeWord)
             with open('assets/ListOfWords.txt', 'r') as wordFile:
@@ -248,7 +273,7 @@ class Agent:
                     else:
                         wordFile.write(word)
 
-    def UpdateKnowledgeBase(self, lettersNotInGoal: list[str], lettersInGoal: list[any], lettersInCorrectPos: list[any]) -> None:
+    def UpdateKnowledgeBase(self, lettersNotInGoal: list, lettersInGoal: list, lettersInCorrectPos: list) -> None:
         """
         Updates the information stored within the knowledge base object.
 
@@ -257,6 +282,7 @@ class Agent:
             lettersInGoal: The array of the letter in the goal word in their incorrect location.
             lettersInCorrectPos: The array of the letters in the goal word in their correct location.
         """
+
         self.__knowledgeBase.UpdateBasicKnowledge(lettersNotInGoal, lettersInGoal, lettersInCorrectPos)
         self.__knowledgeBase.UpdatePossibleWords()
         self.__knowledgeBase.InitialiseAlphabetOccurances()
