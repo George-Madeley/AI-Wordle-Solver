@@ -2,6 +2,10 @@
 
 ## Version History
 
+### v1.5.2
+
+- Changed wordle config paramter y from 8 to 9.
+
 ### v1.5.1
 
 - Updated code docStrings.
