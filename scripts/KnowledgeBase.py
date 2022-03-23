@@ -1,4 +1,3 @@
-from random import randint
 from Node import Node
 
 class KnowledgeBase:

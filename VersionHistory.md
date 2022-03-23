@@ -2,6 +2,10 @@
 
 ## Version History
 
+### v1.5.3
+
+- Added the use of `pipenv`.
+
 ### v1.5.2
 
 - Changed wordle config paramter y from 8 to 9.
