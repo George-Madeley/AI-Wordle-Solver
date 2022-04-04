@@ -35,6 +35,16 @@ class Node:
 
         return self.__word
 
+    def __repr__(self) -> str:
+        """
+        Sets the object instance alias to the stored word.
+        
+        Returns:
+            Thye stored word.
+        """
+        
+        return str(self.__word)
+
     def PrintNodeInfo(self) -> None:
         """
         Prints the word, occurance score, knowledge score,

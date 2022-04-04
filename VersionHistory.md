@@ -2,6 +2,10 @@
 
 ## Version History
 
+### v1.5.4
+
+- Added a `__repr__()` method to the Node class.
+
 ### v1.5.3
 
 - Added the use of `pipenv`.
