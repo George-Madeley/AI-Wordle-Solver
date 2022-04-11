@@ -372,11 +372,8 @@ archi
 arcus
 ardeb
 ardor
-areae
 areal
-arear
 areas
-areca
 areic
 arena
 arene
@@ -2528,7 +2525,6 @@ equal
 eques
 equid
 equip
-erase
 erect
 ergot
 erica
@@ -2543,7 +2539,6 @@ erugo
 erupt
 eruvs
 ervil
-escar
 escot
 eskar
 esker
@@ -6546,7 +6541,6 @@ rebus
 rebut
 rebuy
 recap
-recce
 recit
 recks
 recon
@@ -6994,7 +6988,6 @@ scams
 scans
 scant
 scape
-scare
 scarf
 scarp
 scars

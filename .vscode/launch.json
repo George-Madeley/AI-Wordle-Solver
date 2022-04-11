@@ -5,6 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Web Controller",
+            "type": "python",
+            "request": "launch",
+            "program": "scripts/WebController.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
             "name": "Remove Duplicates",
             "type": "python",
             "request": "launch",

@@ -2,6 +2,10 @@
 
 ## Version History
 
+### v1.5.5
+
+- Added support for automatic Chrome launching.
+
 ### v1.5.4
 
 - Added a `__repr__()` method to the Node class.

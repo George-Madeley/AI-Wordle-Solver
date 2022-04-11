@@ -1,7 +1,7 @@
 {
     "pos": {
-        "x": "1676",
-        "y": "711"
+        "x": "1673",
+        "y": "720"
     },
     "size": {
         "x": "495",
@@ -46,6 +46,6 @@
     "recordfile": "test/WordleRecord.txt",
     "turndelay": "5",
     "infiniteloop": "False",
-    "checkpreviousattempts": "True",
+    "checkpreviousattempts": "False",
     "addwords": "False"
 }

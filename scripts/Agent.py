@@ -35,12 +35,12 @@ class Agent:
             with open('assets/ListOfWords.txt', 'a') as wordFile:
                 wordFile.write(f"{word}\n")
 
-    def ClickShareButton(self, location: tuple) -> None:
+    def ClickAtLocation(self, location: tuple) -> None:
         """
-        Clicks the share button.
+        Clicks at the given location.
 
         Args:
-            location: A tuple for the x and y position of the share button.
+            location: A tuple for the x and y position.
         """
 
         x, y = location

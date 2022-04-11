@@ -8,6 +8,8 @@ pyautogui = "*"
 pillow = "*"
 keyboard = "*"
 pyperclip = "*"
+selenium = "*"
+webdriver-manager = "*"
 
 [dev-packages]
 

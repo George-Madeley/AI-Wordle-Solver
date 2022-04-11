@@ -7,6 +7,14 @@ import json
 import pyperclip
 from datetime import date
 
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+
+
+wordle_url = "https://www.nytimes.com/games/wordle/index.html"
+
 def Main():
     """
     Checks the number of arguments given and runs a given test.
@@ -18,7 +26,12 @@ def Main():
         sys.exit(1)
     if bool(sys.argv[1]):
         configFile = sys.argv[2]
-        Wordle(configFile)
+        options = Options()
+        options.add_argument("start-maximized")
+        options.add_experimental_option("detach", True)
+        with webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options) as driver:
+            driver.get(wordle_url)
+            Wordle(configFile)
     else:
         TestAllKnownWords()
 
@@ -287,6 +300,9 @@ def Wordle(configFileName: str):
         setLooping = isLooping
         agent = Agent(wordleConfig)
 
+        agent.ClickAtLocation((2500, 1880))
+        agent.ClickAtLocation((2250, 770))
+
         gameOver = False
         numberOfAttempts = 0
         guessedWords = []
@@ -297,16 +313,17 @@ def Wordle(configFileName: str):
         if checkPreviousAttempts:
             numberOfAttempts, allReadColors, guessedWords = CheckForPreviousAttempts(agent, allReadColors, guessedWords)
 
-        print("Press ESC to continue...")
-        keyboard.wait('esc')
-        print("PRESSED ESC")
+        # print("Press ESC to continue...")
+        # keyboard.wait('esc')
+        # print("PRESSED ESC")
         # Plays the Game
         while not gameOver and numberOfAttempts < 6:
             guessWord = agent.GetGuessWord(numberOfAttempts)
             keyboard.write(guessWord)
-            print("Press ENTER to continue...")
-            keyboard.wait('enter')
-            print("PRESSED ENTER")
+            # print("Press ENTER to continue...")
+            # keyboard.wait('enter')
+            # print("PRESSED ENTER")
+            keyboard.press_and_release('enter')
             time.sleep(float(wordleConfig["turndelay"]))
             screenShotFilePath = agent.GetScreenshot()
             readColorsList = agent.ReadImage(numberOfAttempts, screenShotFilePath)
@@ -347,7 +364,7 @@ def Wordle(configFileName: str):
 
         keyboard.press_and_release('enter')
         location = agent.FindShareButton()
-        agent.ClickShareButton(location)
+        agent.ClickAtLocation(location)
         fileName = wordleConfig["recordfile"]
         RecordWordleData(fileName, numberOfAttempts, guessedWords, removedWords, addedWord, allReadColors, wordleConfig)
         time.sleep(0.5)
