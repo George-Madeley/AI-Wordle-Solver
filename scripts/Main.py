@@ -28,6 +28,7 @@ def Main():
         configFile = sys.argv[2]
         options = Options()
         options.add_argument("start-maximized")
+        options.add_experimental_option("excludeSwitches", ["enable-logging"])
         options.add_experimental_option("detach", True)
         with webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options) as driver:
             driver.get(wordle_url)

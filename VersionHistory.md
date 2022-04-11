@@ -2,6 +2,10 @@
 
 ## Version History
 
+### v1.5.6
+
+- Disabled Selenium from logging errors to console.
+
 ### v1.5.5
 
 - Added support for automatic Chrome launching.
