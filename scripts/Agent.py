@@ -214,6 +214,39 @@ class Agent:
         pyautogui.screenshot('images\shot.png')
         return 'images\shot.png'
 
+    def IsCloseButton(self, filePath: str) -> bool:
+        """
+        Looks at the screenshot to determine if the close button of the win screen is prsenet.
+        
+        Args:
+            filePath: The filePath to the image.
+
+        Returns:
+            True if the close button is present.
+        """
+
+        closeButtonSizeX = int(self.__config["closebutton"]["size"]["x"])
+        closeButtonSizeY = int(self.__config["closebutton"]["size"]["y"])
+        closeButtonPosX = int(self.__config["closebutton"]["pos"]["x"])
+        closeButtonPosY = int(self.__config["closebutton"]["pos"]["y"])
+        closeButtonColor = [int(color) for color in self.__config["closebutton"]["color"].values()]
+        closeButton = (closeButtonPosX, closeButtonPosY, closeButtonPosX + closeButtonSizeX, closeButtonPosY + closeButtonSizeY)
+        with Image.open(filePath) as screenshot:
+            closeButtonImage = screenshot.crop(box=closeButton)
+        colors = closeButtonImage.getcolors()
+        finalColor = [0, 0, 0]
+        for color in colors:
+            finalColor[0] += color[-1][0]
+            finalColor[1] += color[-1][1]
+            finalColor[2] += color[-1][2]
+        finalColor[0] = finalColor[0] // len(colors)
+        finalColor[1] = finalColor[1] // len(colors)
+        finalColor[2] = finalColor[2] // len(colors)
+
+        return (finalColor[0] == closeButtonColor[0]
+            and finalColor[1] == closeButtonColor[1]
+            and finalColor[2] == closeButtonColor[2])
+
     def ReadAllWords(self) -> None:
         """
         Reads all the words from the ListOfWords.txt

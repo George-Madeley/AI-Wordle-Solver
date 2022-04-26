@@ -1,0 +1,4 @@
+*.jpg
+*.png
+!shot.png
+*copy.txt

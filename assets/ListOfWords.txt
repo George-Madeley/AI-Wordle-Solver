@@ -3585,7 +3585,6 @@ harsh
 harts
 hasps
 hasta
-haste
 hasty
 hatch
 hated
@@ -3619,7 +3618,6 @@ heapy
 heard
 hears
 heart
-heath
 heats
 heave
 heavy
@@ -3636,7 +3634,6 @@ hefty
 heigh
 heils
 heirs
-heist
 helio
 helix
 hella
@@ -3671,7 +3668,6 @@ heros
 herry
 hertz
 hests
-heths
 heuch
 heugh
 hevea
@@ -6051,7 +6047,6 @@ plait
 plane
 plank
 plans
-plant
 plash
 plasm
 plate
@@ -7098,7 +7093,6 @@ senna
 senor
 sensa
 sense
-sente
 senti
 sents
 sepal
@@ -7122,7 +7116,6 @@ serry
 serum
 serve
 servo
-setae
 setal
 seton
 setts
@@ -7174,6 +7167,7 @@ shear
 sheas
 sheds
 sheen
+heist
 sheep
 sheer
 sheet
@@ -7742,14 +7736,12 @@ stamp
 stand
 stane
 stang
-stank
 staph
 stare
 stark
 stars
 start
 stash
-state
 stats
 stave
 stays
@@ -7870,7 +7862,6 @@ sudor
 sudsy
 suede
 suers
-suete
 suets
 suety
 sugar

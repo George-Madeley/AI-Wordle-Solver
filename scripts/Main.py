@@ -329,6 +329,14 @@ def Wordle(configFileName: str):
             screenShotFilePath = agent.GetScreenshot()
             readColorsList = agent.ReadImage(numberOfAttempts, screenShotFilePath)
             allReadColors.append(readColorsList)
+            # Checks if an error was raised due to the win screen.
+            try:
+                incorrectLetters, lettersIncorrectPos, lettersCorrectPos = agent.GetInformation(guessWord, readColorsList)
+                if agent.IsCloseButton(screenShotFilePath):
+                    raise ValueError
+            except ValueError:
+                gameOver = True
+                break
             # Checks if the word was invalid
             if readColorsList.count("black") == 5:
                 removedWords.append(guessWord)
@@ -337,12 +345,6 @@ def Wordle(configFileName: str):
                     keyboard.press_and_release('backspace')
                 continue
             guessedWords.append(guessWord)
-            # Checks if an error was raised due to the win screen.
-            try:
-                incorrectLetters, lettersIncorrectPos, lettersCorrectPos = agent.GetInformation(guessWord, readColorsList)
-            except ValueError:
-                gameOver = True
-                break
             # Checks if the goal word was found.
             if None not in lettersCorrectPos:
                 gameOver = True
@@ -369,6 +371,7 @@ def Wordle(configFileName: str):
         fileName = wordleConfig["recordfile"]
         RecordWordleData(fileName, numberOfAttempts, guessedWords, removedWords, addedWord, allReadColors, wordleConfig)
         time.sleep(0.5)
+    print("===== Game Over =====")
 
 
 if __name__ == "__main__":  

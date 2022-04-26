@@ -2,6 +2,12 @@
 
 ## Version History
 
+### v1.5.7
+
+- Added the ability to detect close button.
+- Fixed error where the agent would still guess words after the game has finished.
+- Added .gitignore file.
+
 ### v1.5.6
 
 - Disabled Selenium from logging errors to console.
