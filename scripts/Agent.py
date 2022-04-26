@@ -163,7 +163,9 @@ class Agent:
         """
 
         if attemptNumber == 0:
-            return self.GetBestOccuranceWord().GetWord()
+            bestNode = self.GetBestOccuranceWord()
+            bestNode.PrintNodeInfo()
+            return bestNode.GetWord()
         else:
             bestNode = self.GetBestKnowledgeWord()
             bestNode.PrintNodeInfo()
@@ -199,8 +201,6 @@ class Agent:
                 incorrectLetterPos[index] = letter
             elif color == "green":
                 correctLetterPos[index] = letter
-            else:
-                raise ValueError(f"Color, {color} is not one of the predefined colors")
         return lettersNotInGoal, incorrectLetterPos, correctLetterPos
 
     def GetScreenshot(self) -> str:

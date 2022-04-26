@@ -2,6 +2,11 @@
 
 ## Version History
 
+### v1.5.8
+
+- Added support to record data to CSV.
+- Agent now prints stats of the first word to the console.
+
 ### v1.5.7
 
 - Added the ability to detect close button.

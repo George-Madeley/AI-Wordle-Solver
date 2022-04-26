@@ -4,6 +4,7 @@ import sys
 import time
 import keyboard
 import json
+import csv
 import pyperclip
 from datetime import date
 
@@ -156,7 +157,7 @@ def ReadJSON(JSONFilename: str) -> dict:
         data = json.load(wordleConfig)
     return data
 
-def RecordWordleData(fileName: str, numberOfAttempts: int, guessedWords: list, removedWords: list, addedWord: str, allColors: list, wordleConfig: dict) -> None:
+def RecordWordleData(fileName: str, numberOfAttempts: int, guessedWords: list, removedWords: list, allColors: list, wordleConfig: dict, addedWord: str = 'N/A') -> None:
         """
         Records how the last game went and appends it to a file.
         
@@ -187,7 +188,7 @@ def RecordWordleData(fileName: str, numberOfAttempts: int, guessedWords: list, r
             wordleShareData = pyperclip.paste()
 
         # Appends to the record file.
-        with open(fileName, 'a', encoding="UTF-8") as recordFile:
+        with open(fileName + ".txt", 'a', encoding="UTF-8") as recordFile:
             recordFile.write(f"=======================================\n")
             recordFile.write(f"Date: {date.today()}\n")
             recordFile.write(f"\nNumber of attempts: {numberOfAttempts}/6\n")
@@ -202,6 +203,23 @@ def RecordWordleData(fileName: str, numberOfAttempts: int, guessedWords: list, r
                 recordFile.write(f"\t+ {addedWord}\n")
             recordFile.write(f"-------------------\n")
             recordFile.write(wordleShareData.replace('\n', '') + "\n\n")
+
+        with open(fileName + ".csv", 'a', newline='') as recordFile:
+            outputDictWriter = csv.DictWriter(recordFile, ['date', 'number of attempts', 'attempt 1', 'attempt 2', 'attempt 3', 'attempt 4', 'attempt 5', 'attempt 6', 'removed words', 'added words'])
+            tempDict = {
+                'date': str(date.today()),
+                'number of attempts': str(numberOfAttempts),
+                'removed words': str(None if removedWords == [] else []),
+                'added words': str(addedWord)
+            }
+            for attemptNum in range(6):
+                try:
+                    tempDict[f'attempt {attemptNum + 1}'] = str(guessedWords[attemptNum])
+                except IndexError:
+                    tempDict[f'attempt {attemptNum + 1}'] = str('N/A')
+            outputDictWriter.writerow(tempDict)
+
+
 
 def RunGame(goalWord: str) -> list:
     """
@@ -328,23 +346,25 @@ def Wordle(configFileName: str):
             time.sleep(float(wordleConfig["turndelay"]))
             screenShotFilePath = agent.GetScreenshot()
             readColorsList = agent.ReadImage(numberOfAttempts, screenShotFilePath)
+
+            guessedWords.append(guessWord)
             allReadColors.append(readColorsList)
-            # Checks if an error was raised due to the win screen.
-            try:
-                incorrectLetters, lettersIncorrectPos, lettersCorrectPos = agent.GetInformation(guessWord, readColorsList)
-                if agent.IsCloseButton(screenShotFilePath):
-                    raise ValueError
-            except ValueError:
+
+            incorrectLetters, lettersIncorrectPos, lettersCorrectPos = agent.GetInformation(guessWord, readColorsList)
+            if agent.IsCloseButton(screenShotFilePath):
                 gameOver = True
                 break
+
             # Checks if the word was invalid
             if readColorsList.count("black") == 5:
                 removedWords.append(guessWord)
                 agent.RemoveWord(guessWord)
+                guessedWords.pop(-1)
+                allReadColors.pop(-1)
                 for i in range(5):
                     keyboard.press_and_release('backspace')
                 continue
-            guessedWords.append(guessWord)
+
             # Checks if the goal word was found.
             if None not in lettersCorrectPos:
                 gameOver = True
@@ -369,7 +389,7 @@ def Wordle(configFileName: str):
         location = agent.FindShareButton()
         agent.ClickAtLocation(location)
         fileName = wordleConfig["recordfile"]
-        RecordWordleData(fileName, numberOfAttempts, guessedWords, removedWords, addedWord, allReadColors, wordleConfig)
+        RecordWordleData(fileName, numberOfAttempts, guessedWords, removedWords, allReadColors, wordleConfig, addedWord)
         time.sleep(0.5)
     print("===== Game Over =====")
 

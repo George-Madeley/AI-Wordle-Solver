@@ -43,7 +43,7 @@
         "y": "626"
     },
     "makeemojis": "True",
-    "recordfile": "test/WordleUnlimitedRecord.txt",
+    "recordfile": "test/WordleUnlimitedRecord",
     "turndelay": "0.2",
     "infiniteloop": "True",
     "checkpreviousattempts": "False",

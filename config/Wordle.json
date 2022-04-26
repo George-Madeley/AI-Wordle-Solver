@@ -58,7 +58,7 @@
         "y": "1350"
     },
     "makeemojis": "False",
-    "recordfile": "test/WordleRecord.txt",
+    "recordfile": "test/WordleRecord",
     "turndelay": "5",
     "infiniteloop": "False",
     "checkpreviousattempts": "False",
