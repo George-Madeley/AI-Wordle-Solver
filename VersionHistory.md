@@ -2,6 +2,10 @@
 
 ## Version History
 
+### v1.5.9
+
+- Added script tro update READ.md on recent Wordle results.
+
 ### v1.5.8
 
 - Added support to record data to CSV.

@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Web Controller",
+            "name": "README update",
             "type": "python",
             "request": "launch",
-            "program": "scripts/WebController.py",
+            "program": "scripts/UpdateReadMe.py",
             "console": "integratedTerminal",
             "justMyCode": true
         },
