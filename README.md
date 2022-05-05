@@ -6,7 +6,7 @@ An AI that attempts to solve Wordle problems. The agent uses a knowledge-based A
 
 The following are the agents attempt at 2022-05-05 Wordle:
 
-Wordle 320 5/6<br><br>⬛⬛🟨🟩⬛<br>⬛🟩⬛⬛⬛<br>⬛⬛⬛⬛🟨<br>⬛⬛🟩⬛⬛<br>🟩🟩🟩🟩🟩
+Wordle 320 4/6<br><br>⬛⬛🟨🟩⬛<br>⬛🟩⬛⬛⬛<br>⬛⬛🟩⬛🟨<br>🟩🟩🟩🟩🟩
 
 Did you beat the agent on todays Wordle?
 
