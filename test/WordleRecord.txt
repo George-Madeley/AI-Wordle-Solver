@@ -815,3 +815,14 @@ Attempt 4: being
 -------------------
 Wordle 332 5/6⬛⬛⬛🟨⬛⬛⬛🟩⬛⬛⬛⬛⬛🟩⬛🟨⬛⬛🟨🟨🟩🟩🟩🟩🟩
 
+=======================================
+Date: 2022-05-20
+
+Number of attempts: 3/6
+Attempt 0: cares
+Attempt 1: moldy
+Attempt 2: grant
+Attempt 3: gamer
+-------------------
+Wordle 335 4/6⬛🟩🟨🟩⬛🟨⬛⬛⬛⬛🟩🟨🟨⬛⬛🟩🟩🟩🟩🟩
+
